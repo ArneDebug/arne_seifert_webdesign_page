@@ -348,15 +348,27 @@ export default function PremiumDeveloperPortfolio() {
         </div>
       </section>
 
-      {/* Marquee */}
-      <section className="border-y border-white/10 overflow-hidden py-6 bg-white/[0.03]">
-        <div className="flex justify-center gap-32 whitespace-nowrap text-white/40 text-xl font-semibold tracking-[0.3em] uppercase animate-pulse px-10">
+      {/* Desktop Marquee */}
+      <section className="hidden md:block border-y border-white/10 overflow-hidden py-6 bg-white/[0.03]">
+        <div className="flex justify-center gap-32 whitespace-nowrap text-white/40 text-xl font-semibold tracking-[0.3em] uppercase px-10">
           <span>Web Design</span>
           <span>Modern UX</span>
           <span>Performance</span>
           <span>Branding</span>
           <span>Landing Pages</span>
           <span>Creative Development</span>
+        </div>
+      </section>
+
+      {/* Mobile Version */}
+      <section className="md:hidden border-y border-white/10 py-6 bg-white/[0.03]">
+        <div className="grid grid-cols-2 gap-y-4 text-center text-white/40 text-xs font-semibold tracking-[0.25em] uppercase">
+          <span>Web Design</span>
+          <span>Modern UX</span>
+          <span>Performance</span>
+          <span>Branding</span>
+          <span>Landing Pages</span>
+          <span>Development</span>
         </div>
       </section>
 
