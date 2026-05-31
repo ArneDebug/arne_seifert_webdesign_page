@@ -184,7 +184,7 @@ export default function PremiumDeveloperPortfolio() {
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-white/10 bg-black/20">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
           <div className="text-xl font-bold tracking-widest uppercase">
             <a href= "#">Arne Seifert Webdesign.</a>
           </div>
@@ -295,9 +295,9 @@ export default function PremiumDeveloperPortfolio() {
           </div>
 
           {/* Right */}
-          <div className="relative h-[600px] hidden lg:flex items-center justify-center">
+          <div className="relative h-[420px] flex items-center justify-center lg:h-[600px]">
             {/* Main Card */}
-            <div className="relative w-[420px] h-[520px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
+            <div className="relative w-[280px] h-[360px] md:w-[420px] md:h-[520px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
   
           {/* Background Image */}
           <img
@@ -335,12 +335,12 @@ export default function PremiumDeveloperPortfolio() {
         </div>
 
             {/* Floating Cards */}
-            <div className="absolute top-10 left-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[-8deg] shadow-xl animate-bounce">
+            <div className="absolute hidden md:block top-10 left-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[-8deg] shadow-xl animate-bounce">
               <div className="text-xs text-white/50">{t.smoothAnimations}</div>
               <div className="mt-1 text-lg font-bold">{t.gsapReady}</div>
             </div>
 
-            <div className="absolute bottom-16 right-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[8deg] shadow-xl">
+            <div className="absolute hidden md:block bottom-16 right-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[8deg] shadow-xl">
               <div className="text-xs text-white/50">{t.responsiveDesign}</div>
               <div className="mt-1 text-lg font-bold">{t.mobileFirst}</div>
             </div>
@@ -380,7 +380,7 @@ export default function PremiumDeveloperPortfolio() {
                 key={index}
                 className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] transition duration-500"
               >
-                <div className="h-[400px] bg-gradient-to-br from-white/5 to-white/[0.02] p-8 flex flex-col justify-between">
+                <div className="h-[320px] md:h-[400px] bg-gradient-to-br from-white/5 to-white/[0.02] p-8 flex flex-col justify-between">
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-white/40 text-sm">{project.category}</div>
@@ -394,7 +394,7 @@ export default function PremiumDeveloperPortfolio() {
                     </div>
                   </div>
 
-                  <div className="relative rounded-3xl overflow-hidden border border-white/10 h-[340px] bg-black flex items-center justify-center group">
+                  <div className="relative rounded-3xl overflow-hidden border border-white/10 h-[180px] md:h-[340px] bg-black flex items-center justify-center group">
 
                     <img
                       src={project.image}
@@ -454,7 +454,7 @@ export default function PremiumDeveloperPortfolio() {
       </section>
 
       {/* CTA */}
-      <section id="contact" className="py-32 px-6">
+      <section id="contact" className="py-20 md:py-32 px-6">
         <div className="max-w-6xl mx-auto relative overflow-hidden rounded-[3rem] border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-16 text-center">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10" />
 
@@ -463,7 +463,7 @@ export default function PremiumDeveloperPortfolio() {
               {t.ctaLabel}
             </p>
 
-            <h2 className="mt-6 text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
+            <h2 className="mt-6 text-4xl md:text-7xl font-black tracking-tight leading-[0.95]">
               {t.ctaTitle1}
               <br />
               {t.ctaTitle2}
