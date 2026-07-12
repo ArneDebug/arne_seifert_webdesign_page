@@ -40,27 +40,32 @@ export default function PremiumDeveloperPortfolio() {
     designedTo: "Designed to",
     standOut: "stand out.",
 
-    projects: {
-      pizza: {
+    projects: [
+      {
         title: "Classy Pizza Place",
         category: "Restaurant",
+        image: "/pizza_place.png",
+        link: "#",
       },
-
-      tattoo: {
+      {
         title: "Modern Tattoo Studio",
         category: "Tattoo Studio",
+        image: "/tattoo-project.png",
+        link: "#",
       },
-
-      fitness: {
+      {
         title: "Strong Fitness Experiences",
         category: "Fitness",
+        image: "/fitness-project.png",
+        link: "#",
       },
-
-      comingSoon: {
+      {
         title: "Coming Soon",
         category: "Unknown",
+        image: "/physiotherapie.png",
+        link: "#",
       },
-    },
+    ],
 
     philosophyLabel: "Philosophy",
     philosophyTitle1: "Most websites are forgotten",
@@ -120,27 +125,33 @@ export default function PremiumDeveloperPortfolio() {
     designedTo: "Entwickelt um",
     standOut: "aufzufallen.",
 
-    projects: {
-      pizza: {
-        title: "Stilvolle Pizzeria",
-        category: "Restaurant",
-      },
 
-      tattoo: {
-        title: "Modernes Tattoo Studio",
-        category: "Tattoo Studio",
-      },
-
-      fitness: {
-        title: "Starke Fitness Erlebnisse",
-        category: "Fitness",
-      },
-
-      comingSoon: {
-        title: "Demnächst",
-        category: "Bald verfügbar",
-      },
-    },
+    projects: [
+        {
+          title: "Stilvolle Pizzeria",
+          category: "Restaurant",
+          image: "/pizza_place.png",
+          link: "#",
+        },
+        {
+          title: "Modernes Tattoo Studio",
+          category: "Tattoo Studio",
+          image: "/tattoo-project.png",
+          link: "#",
+        },
+        {
+          title: "Starke Fitness Erlebnisse",
+          category: "Fitness",
+          image: "/fitness-project.png",
+          link: "#",
+        },
+        {
+          title: "Demnächst",
+          category: "Bald verfügbar",
+          image: "/physiotherapie.png",
+          link: "#",
+        },
+    ],
 
     philosophyLabel: "Philosophie",
     philosophyTitle1: "Die meisten Webseiten werden",
@@ -166,35 +177,7 @@ export default function PremiumDeveloperPortfolio() {
 }
   const t = translations[language]
 
-  const projects = [
-  {
-    title: t.projects.pizza.title,
-    category: t.projects.pizza.category,
-    image: "/pizza-place.png",
-    link: "#",
-  },
-
-  {
-    title: t.projects.tattoo.title,
-    category: t.projects.tattoo.category,
-    image: "/tattoo-project.png",
-    link: "#",
-  },
-
-  {
-    title: t.projects.fitness.title,
-    category: t.projects.fitness.category,
-    image: "/fitness-project.png",
-    link: "#",
-  },
-
-  {
-    title: t.projects.comingSoon.title,
-    category: t.projects.comingSoon.category,
-    image: "/physiotherapie.png",
-    link: "#",
-  },
-]
+  const projects = t.projects
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden font-sans">
