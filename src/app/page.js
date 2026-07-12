@@ -40,9 +40,27 @@ export default function PremiumDeveloperPortfolio() {
     designedTo: "Designed to",
     standOut: "stand out.",
 
-    clientProject: "Client Project",
-    landingPageName: "Modern Business Landing Page",
-    preview: "Preview",
+    projects: {
+      pizza: {
+        title: "Classy Pizza Place",
+        category: "Restaurant",
+      },
+
+      tattoo: {
+        title: "Modern Tattoo Studio",
+        category: "Tattoo Studio",
+      },
+
+      fitness: {
+        title: "Strong Fitness Experiences",
+        category: "Fitness",
+      },
+
+      comingSoon: {
+        title: "Coming Soon",
+        category: "Unknown",
+      },
+    },
 
     philosophyLabel: "Philosophy",
     philosophyTitle1: "Most websites are forgotten",
@@ -102,15 +120,32 @@ export default function PremiumDeveloperPortfolio() {
     designedTo: "Entwickelt um",
     standOut: "aufzufallen.",
 
-    clientProject: "Kundenprojekt",
-    landingPageName: "Moderne Business-Landingpage",
-    preview: "Vorschau",
+    projects: {
+      pizza: {
+        title: "Stilvolle Pizzeria",
+        category: "Restaurant",
+      },
+
+      tattoo: {
+        title: "Modernes Tattoo Studio",
+        category: "Tattoo Studio",
+      },
+
+      fitness: {
+        title: "Starke Fitness Erlebnisse",
+        category: "Fitness",
+      },
+
+      comingSoon: {
+        title: "Demnächst",
+        category: "Bald verfügbar",
+      },
+    },
 
     philosophyLabel: "Philosophie",
     philosophyTitle1: "Die meisten Webseiten werden",
     philosophyTitle2: "innerhalb von Sekunden vergessen.",
-    philosophyText:
-      "Eine moderne Webseite ist mehr als nur Information. Sie vermittelt Vertrauen, Identität und Emotion.",
+    philosophyText: "Eine moderne Webseite ist mehr als nur Information. Sie vermittelt Vertrauen, Identität und Emotion.",
 
     codeText1: "moderne Nutzererlebnisse gestalten",
     codeText2: "responsive Interfaces entwickeln",
@@ -121,8 +156,7 @@ export default function PremiumDeveloperPortfolio() {
     ctaTitle1: "Dein Unternehmen",
     ctaTitle2: "verdient besseres Design.",
 
-    ctaText:
-      "Moderne Webseiten für Unternehmen, die professionell, vertrauenswürdig und einzigartig wirken möchten.",
+    ctaText: "Moderne Webseiten für Unternehmen, die professionell, vertrauenswürdig und einzigartig wirken möchten.",
 
     startProject: "Projekt starten",
 
@@ -134,29 +168,29 @@ export default function PremiumDeveloperPortfolio() {
 
   const projects = [
   {
-    title: "Classy Pizza Place",
-    category: "Restaurant",
-    image: "/pizza_place.png",
+    title: t.projects.pizza.title,
+    category: t.projects.pizza.category,
+    image: "/pizza-place.png",
     link: "#",
   },
 
   {
-    title: "Modern Tattoo Studio",
-    category: "Tattoo Studio",
+    title: t.projects.tattoo.title,
+    category: t.projects.tattoo.category,
     image: "/tattoo-project.png",
     link: "#",
   },
 
   {
-    title: "Fitness Brand Experience",
-    category: "Fitness",
+    title: t.projects.fitness.title,
+    category: t.projects.fitness.category,
     image: "/fitness-project.png",
     link: "#",
   },
 
   {
-    title: "Coming soon",
-    category: "Unknown",
+    title: t.projects.comingSoon.title,
+    category: t.projects.comingSoon.category,
     image: "/physiotherapie.png",
     link: "#",
   },
