@@ -339,7 +339,7 @@ export default function PremiumDeveloperPortfolio() {
   
           {/* Background Image */}
           <img
-            src="/me.jpg"
+            src="single_seating_image_pullover.png"
             alt="Arne"
             className="absolute inset-0 w-full h-full object-cover"
           />
