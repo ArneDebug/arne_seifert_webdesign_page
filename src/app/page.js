@@ -55,14 +55,14 @@ export default function PremiumDeveloperPortfolio() {
         ease: "power3.out",
     })
 
-    .from(heroRightRef.current, {
+    tl.from(heroRightRef.current, {
         opacity: 0,
         x: 80,
         duration: 1,
         ease: "power3.out",
     },  "-=0.6")
 
-    .from(heroButtonsRef.current, {
+    tl.from(heroButtonsRef.current, {
       opacity: 0,
       y: 60,
       scale: 0.92,
