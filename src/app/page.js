@@ -40,7 +40,7 @@ export default function PremiumDeveloperPortfolio() {
     designedTo: "Designed to",
     standOut: "stand out.",
 
-    projects: [
+    projectList: [
       {
         title: "Classy Pizza Place",
         category: "Restaurant",
@@ -126,7 +126,7 @@ export default function PremiumDeveloperPortfolio() {
     standOut: "aufzufallen.",
 
 
-    projects: [
+    projectList: [
         {
           title: "Stilvolle Pizzeria",
           category: "Restaurant",
@@ -177,7 +177,7 @@ export default function PremiumDeveloperPortfolio() {
 }
   const t = translations[language]
 
-  const projects = t.projects
+  const projects = t.projectList
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden font-sans">
