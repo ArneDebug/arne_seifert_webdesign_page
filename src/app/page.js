@@ -1,10 +1,31 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function PremiumDeveloperPortfolio() {
 
-  const [language, setLanguage] = useState('en')
+  const [language, setLanguage] = useState('de')
+  
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language")
+
+    if (savedLanguage) {
+      setLanguage(savedLanguage)
+    } else {
+      const browserLanguage = navigator.language.toLowerCase()
+
+      if (browserLanguage.startsWith("en")) {
+        setLanguage("en")
+      } else {
+        setLanguage("de")
+      }
+    }
+  }, [])
+
+  const changeLanguage = (lang) => {
+    setLanguage(lang)
+    localStorage.setItem("language", lang)
+  }
 
   const translations = {
   en: {
@@ -223,7 +244,7 @@ export default function PremiumDeveloperPortfolio() {
             <div className="flex items-center p-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl">
 
               <button
-                onClick={() => setLanguage('en')}
+                onClick={() => changeLanguage("en")}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
                   language === 'en'
                     ? 'bg-white text-black shadow-lg'
@@ -234,7 +255,7 @@ export default function PremiumDeveloperPortfolio() {
               </button>
 
               <button
-                onClick={() => setLanguage('de')}
+                onClick={() => changeLanguage("de")}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
                   language === 'de'
                     ? 'bg-white text-black shadow-lg'
