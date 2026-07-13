@@ -1,11 +1,23 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function PremiumDeveloperPortfolio() {
 
   const [language, setLanguage] = useState('de')
+
+  const navRef = useRef(null);
+  const heroRef = useRef(null)
+  const heroLeftRef = useRef(null)
+  const heroRightRef = useRef(null)
+  const heroButtonsRef = useRef(null)
   
+  // Language
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language")
 
@@ -21,6 +33,43 @@ export default function PremiumDeveloperPortfolio() {
       }
     }
   }, [])
+
+  // GSAP Animations
+  useEffect(() => {
+
+    const tl = gsap.timeline();
+
+    tl.from(navRef.current, {
+      y: -80,
+      opacity: 0,
+      filter: "blur(10px)",
+      duration: 0.8,
+      ease: "power3.out",
+    })
+
+    tl.from(heroLeftRef.current, {
+        opacity: 0,
+        x: -60,
+        duration: 1,
+        ease: "power3.out",
+    })
+
+    .from(heroRightRef.current, {
+        opacity: 0,
+        x: 80,
+        duration: 1,
+        ease: "power3.out",
+    },  "-=0.6")
+
+    .from(heroButtonsRef.current, {
+    opacity: 0,
+    y: 60,
+    scale: 0.92,
+    duration: 0.9,
+    ease: "back.out(1.8)",
+    }, "-=0.1");
+
+  }, []);
 
   const changeLanguage = (lang) => {
     setLanguage(lang)
@@ -221,7 +270,7 @@ export default function PremiumDeveloperPortfolio() {
       </div>
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-white/10 bg-black/20">
+      <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-white/10 bg-black/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
           <div className="text-xl font-bold tracking-widest uppercase">
             <a href= "#">Arne Seifert Webdesign.</a>
@@ -275,7 +324,7 @@ export default function PremiumDeveloperPortfolio() {
       </nav>
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center px-6 pt-32">
+      <section ref={heroLeftRef} className="relative min-h-screen flex items-center px-6 pt-32">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
           {/* Left */}
           <div>
@@ -304,12 +353,12 @@ export default function PremiumDeveloperPortfolio() {
 
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div ref={heroButtonsRef} className="mt-10 flex flex-wrap gap-4">
               <a href="#work" className="px-8 py-4 rounded-full bg-white text-black font-semibold hover:scale-105 transition duration-300 shadow-2xl">
                 {t.viewProjects}
               </a>
 
-              <a href="#about" className="px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition duration-300">
+              <a ref={heroButtonsRef} href="#about" className="px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition duration-300">
                 {t.philosophy}
               </a>
             </div>
@@ -333,9 +382,9 @@ export default function PremiumDeveloperPortfolio() {
           </div>
 
           {/* Right */}
-          <div className="relative h-[420px] flex items-center justify-center lg:h-[600px]">
+          <div ref={heroRightRef} className="relative h-[420px] flex items-center justify-center lg:h-[600px]">
             {/* Main Card */}
-            <div className="relative w-[280px] h-[360px] md:w-[420px] md:h-[520px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
+            <div ref={heroRightRef} className="relative w-[280px] h-[360px] md:w-[420px] md:h-[520px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
   
           {/* Background Image */}
           <img
@@ -373,12 +422,12 @@ export default function PremiumDeveloperPortfolio() {
         </div>
 
             {/* Floating Cards */}
-            <div className="absolute hidden md:block top-10 left-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[-8deg] shadow-xl animate-bounce">
+            <div ref={heroRightRef} className="absolute hidden md:block top-10 left-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[-8deg] shadow-xl animate-bounce">
               <div className="text-xs text-white/50">{t.smoothAnimations}</div>
               <div className="mt-1 text-lg font-bold">{t.gsapReady}</div>
             </div>
 
-            <div className="absolute hidden md:block bottom-16 right-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[8deg] shadow-xl">
+            <div ref={heroRightRef} className="absolute hidden md:block bottom-16 right-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[8deg] shadow-xl">
               <div className="text-xs text-white/50">{t.responsiveDesign}</div>
               <div className="mt-1 text-lg font-bold">{t.mobileFirst}</div>
             </div>
