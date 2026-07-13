@@ -40,7 +40,7 @@ export default function PremiumDeveloperPortfolio() {
 
     const tl = gsap.timeline();
 
-    tl.to(navRef.current, {
+    tl.from(navRef.current, {
       y: -80,
       opacity: 0,
       filter: "blur(10px)",
@@ -48,21 +48,21 @@ export default function PremiumDeveloperPortfolio() {
       ease: "power3.out",
     })
 
-    tl.to(heroLeftRef.current, {
+    tl.from(heroLeftRef.current, {
         opacity: 0,
         x: -60,
         duration: 1,
         ease: "power3.out",
     })
 
-    .to(heroRightRef.current, {
+    .from(heroRightRef.current, {
         opacity: 0,
         x: 80,
         duration: 1,
         ease: "power3.out",
     },  "-=0.6")
 
-    .to(heroButtonsRef.current, {
+    .from(heroButtonsRef.current, {
       opacity: 0,
       y: 60,
       scale: 0.92,
