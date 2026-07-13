@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react';
+import { useLayoutEffect } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -35,11 +36,11 @@ export default function PremiumDeveloperPortfolio() {
   }, [])
 
   // GSAP Animations
-  useEffect(() => {
+  useLayoutEffect(() => {
 
     const tl = gsap.timeline();
 
-    tl.from(navRef.current, {
+    tl.to(navRef.current, {
       y: -80,
       opacity: 0,
       filter: "blur(10px)",
@@ -47,26 +48,26 @@ export default function PremiumDeveloperPortfolio() {
       ease: "power3.out",
     })
 
-    tl.from(heroLeftRef.current, {
+    tl.to(heroLeftRef.current, {
         opacity: 0,
         x: -60,
         duration: 1,
         ease: "power3.out",
     })
 
-    .from(heroRightRef.current, {
+    .to(heroRightRef.current, {
         opacity: 0,
         x: 80,
         duration: 1,
         ease: "power3.out",
     },  "-=0.6")
 
-    .from(heroButtonsRef.current, {
-    opacity: 0,
-    y: 60,
-    scale: 0.92,
-    duration: 0.9,
-    ease: "back.out(1.8)",
+    .to(heroButtonsRef.current, {
+      opacity: 0,
+      y: 60,
+      scale: 0.92,
+      duration: 0.9,
+      ease: "back.out(1.8)",
     }, "-=0.1");
 
   }, []);
