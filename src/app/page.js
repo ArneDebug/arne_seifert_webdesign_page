@@ -43,12 +43,12 @@ export default function PremiumDeveloperPortfolio() {
     });
 
     gsap.set(heroLeftRef.current, {
-      opacity: 0,
+      opacity: 1,
       x: -60,
     });
 
     gsap.set(heroRightRef.current, {
-      opacity: 0,
+      opacity: 1,
       x: 80,
     });
 
@@ -56,7 +56,7 @@ export default function PremiumDeveloperPortfolio() {
 
     tl.from(navRef.current, {
       y: -80,
-      opacity: 0,
+      opacity: 1,
       filter: "blur(10px)",
       duration: 0.8,
       ease: "power3.out",
