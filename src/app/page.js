@@ -74,7 +74,7 @@ export default function PremiumDeveloperPortfolio() {
       ease: "power3.out",
     })
 
-    .to(heroRightRef.current, {
+    tl.to(heroRightRef.current, {
       opacity: 1,
       x: 0,
       duration: 1,
@@ -344,12 +344,12 @@ export default function PremiumDeveloperPortfolio() {
       </nav>
 
       {/* Hero */}
-      <section ref={heroLeftRef} className="relative min-h-screen flex items-center px-6 pt-32">
+      <section ref={heroRef} className="relative min-h-screen flex items-center px-6 pt-32">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
           {/* Left */}
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 border border-white/10 bg-white/5 px-4 py-2 rounded-full text-sm text-white/70 backdrop-blur-lg">
-              <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+            <div ref={heroLeftRef} className="mb-6 inline-flex items-center gap-2 border border-white/10 bg-white/5 px-4 py-2 rounded-full text-sm text-white/70 backdrop-blur-lg">
+              <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse opacity-0" />
               {t.modernWebDesignerAndDeveloper}
             </div>
 
@@ -402,7 +402,7 @@ export default function PremiumDeveloperPortfolio() {
           </div>
 
           {/* Right */}
-          <div ref={heroRightRef} className="relative h-[420px] flex items-center justify-center lg:h-[600px]">
+          <div ref={heroRightRef} className="relative h-[420px] flex items-center justify-center lg:h-[600px] opacity-0">
             {/* Main Card */}
             <div className="relative w-[280px] h-[360px] md:w-[420px] md:h-[520px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
   
