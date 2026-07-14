@@ -344,7 +344,7 @@ export default function PremiumDeveloperPortfolio() {
       </nav>
 
       {/* Hero */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center px-6 pt-32">
+      <section ref={heroRef} className="relative min-h-screen flex items-center px-6 pt-32 opacity-0">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
           {/* Left */}
           <div>
