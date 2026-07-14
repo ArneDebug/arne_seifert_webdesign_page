@@ -56,7 +56,7 @@ export default function PremiumDeveloperPortfolio() {
 
     tl.from(navRef.current, {
       y: -80,
-      opacity: 1,
+      opacity: 0,
       filter: "blur(10px)",
       duration: 0.8,
       ease: "power3.out",
@@ -290,7 +290,7 @@ export default function PremiumDeveloperPortfolio() {
       </div>
 
       {/* Navbar */}
-      <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-white/10 bg-black/20 opacity-0">
+      <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-white/10 bg-black/20">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
           <div className="text-xl font-bold tracking-widest uppercase">
             <a href= "#">Arne Seifert Webdesign.</a>
