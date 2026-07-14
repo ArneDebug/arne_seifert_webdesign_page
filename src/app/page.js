@@ -347,8 +347,8 @@ export default function PremiumDeveloperPortfolio() {
       <section ref={heroRef} className="relative min-h-screen flex items-center px-6 pt-32 opacity-0">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
           {/* Left */}
-          <div>
-            <div ref={heroLeftRef} className="mb-6 inline-flex items-center gap-2 border border-white/10 bg-white/5 px-4 py-2 rounded-full text-sm text-white/70 backdrop-blur-lg opacity-0">
+          <div ref={heroLeftRef} className="opacity-0">
+            <div className="mb-6 inline-flex items-center gap-2 border border-white/10 bg-white/5 px-4 py-2 rounded-full text-sm text-white/70 backdrop-blur-lg">
               <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
               {t.modernWebDesignerAndDeveloper}
             </div>
