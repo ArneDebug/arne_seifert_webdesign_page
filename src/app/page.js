@@ -38,6 +38,20 @@ export default function PremiumDeveloperPortfolio() {
   // GSAP Animations
   useLayoutEffect(() => {
 
+    gsap.set(heroRef.current, {
+      autoAlpha: 0,
+    });
+
+    gsap.set(heroLeftRef.current, {
+      opacity: 0,
+      x: -60,
+    });
+
+    gsap.set(heroRightRef.current, {
+      opacity: 0,
+      x: 80,
+    });
+
     const tl = gsap.timeline();
 
     tl.from(navRef.current, {
@@ -48,19 +62,24 @@ export default function PremiumDeveloperPortfolio() {
       ease: "power3.out",
     })
 
-    tl.from(heroLeftRef.current, {
-        opacity: 0,
-        x: -60,
-        duration: 1,
-        ease: "power3.out",
+    tl.to(heroRef.current, {
+      autoAlpha: 1,
+      duration: 0.01,
+    });
+
+    tl.to(heroLeftRef.current, {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power3.out",
     })
 
-    tl.from(heroRightRef.current, {
-        opacity: 0,
-        x: 80,
-        duration: 1,
-        ease: "power3.out",
-    },  "-=0.6")
+    .to(heroRightRef.current, {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power3.out",
+    }, "-=0.6")
 
     tl.from(heroButtonsRef.current, {
       opacity: 0,
@@ -359,7 +378,7 @@ export default function PremiumDeveloperPortfolio() {
                 {t.viewProjects}
               </a>
 
-              <a ref={heroButtonsRef} href="#about" className="px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition duration-300">
+              <a href="#about" className="px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition duration-300">
                 {t.philosophy}
               </a>
             </div>
@@ -385,7 +404,7 @@ export default function PremiumDeveloperPortfolio() {
           {/* Right */}
           <div ref={heroRightRef} className="relative h-[420px] flex items-center justify-center lg:h-[600px]">
             {/* Main Card */}
-            <div ref={heroRightRef} className="relative w-[280px] h-[360px] md:w-[420px] md:h-[520px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
+            <div className="relative w-[280px] h-[360px] md:w-[420px] md:h-[520px] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
   
           {/* Background Image */}
           <img
@@ -423,12 +442,12 @@ export default function PremiumDeveloperPortfolio() {
         </div>
 
             {/* Floating Cards */}
-            <div ref={heroRightRef} className="absolute hidden md:block top-10 left-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[-8deg] shadow-xl animate-bounce">
+            <div className="absolute hidden md:block top-10 left-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[-8deg] shadow-xl animate-bounce">
               <div className="text-xs text-white/50">{t.smoothAnimations}</div>
               <div className="mt-1 text-lg font-bold">{t.gsapReady}</div>
             </div>
 
-            <div ref={heroRightRef} className="absolute hidden md:block bottom-16 right-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[8deg] shadow-xl">
+            <div className="absolute hidden md:block bottom-16 right-0 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl rotate-[8deg] shadow-xl">
               <div className="text-xs text-white/50">{t.responsiveDesign}</div>
               <div className="mt-1 text-lg font-bold">{t.mobileFirst}</div>
             </div>
