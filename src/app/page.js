@@ -5,8 +5,10 @@ import { useLayoutEffect } from "react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 
 export default function PremiumDeveloperPortfolio() {
 
@@ -18,6 +20,30 @@ export default function PremiumDeveloperPortfolio() {
   const heroRightRef = useRef(null)
   const heroButtonsRef = useRef(null)
   
+  const scrollToSection = (id, button) => {
+    gsap.fromTo(
+      button,
+      { scale: 1 },
+      {
+        scale: 0.92,
+        duration: 0.12,
+        yoyo: true,
+        repeat: 1,
+        ease: "power2.out",
+        onComplete: () => {
+          gsap.set(button, { clearProps: "all" });
+
+          gsap.to(window, {
+            scrollTo: `#${id}`,
+            duration: 1.2,
+            ease: "power3.inOut",
+          });
+        },
+      }
+    );
+  };
+
+
   // Language
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language")
@@ -109,7 +135,7 @@ export default function PremiumDeveloperPortfolio() {
     contact: "Contact",
 
     navContact: "Let's Talk",
-
+ 
     modernWebDesignerAndDeveloper: "Modern Web Designer & Developer",
 
     heroTitle1: "Websites",
@@ -299,19 +325,21 @@ export default function PremiumDeveloperPortfolio() {
       <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-white/10 bg-black/20 opacity-0">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
           <div className="text-xl font-bold tracking-widest uppercase">
-            <a href= "#">Arne Seifert Webdesign.</a>
+            <button onClick={() => scrollToSection("hero")} className="cursor-pointer">
+              Arne Seifert Webdesign.
+            </button>
           </div>
 
           <div className="hidden md:flex items-center gap-10 text-sm text-white/70">
-            <a href="#work" className="hover:text-white transition">
+            <button onClick={() => scrollToSection("work")} className="cursor-pointer hover:text-white transition">
               {t.work}
-            </a>
-            <a href="#about" className="hover:text-white transition">
+            </button>
+            <button onClick={() => scrollToSection("about")} className="cursor-pointer hover:text-white transition">
               {t.about}
-            </a>
-            <a href="#contact" className="hover:text-white transition">
+            </button>
+            <button onClick={() => scrollToSection("contact")} className="cursor-pointer hover:text-white transition">
               {t.contact}
-            </a>
+            </button>
           </div>
 
           <div className="flex items-center gap-4">
@@ -320,7 +348,7 @@ export default function PremiumDeveloperPortfolio() {
 
               <button
                 onClick={() => changeLanguage("en")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
+                className={`cursor-pointer px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
                   language === 'en'
                     ? 'bg-white text-black shadow-lg'
                     : 'text-white/60 hover:text-white'
@@ -331,7 +359,7 @@ export default function PremiumDeveloperPortfolio() {
 
               <button
                 onClick={() => changeLanguage("de")}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
+                className={`cursor-pointer px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
                   language === 'de'
                     ? 'bg-white text-black shadow-lg'
                     : 'text-white/60 hover:text-white'
@@ -341,16 +369,16 @@ export default function PremiumDeveloperPortfolio() {
               </button>
             </div>
 
-            <a href= "#contact" className="px-5 py-2 rounded-full bg-white text-black font-medium hover:scale-105 transition">
+            <button onClick={(e) => scrollToSection("contact", e.currentTarget)} className="cursor-pointer px-5 py-2 rounded-full bg-white text-black font-medium hover:scale-105 transition">
               {t.navContact}
-            </a>
+            </button>
 
           </div>
         </div>
       </nav>
 
       {/* Hero */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center px-6 pt-32 opacity-0">
+      <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center px-6 pt-32 opacity-0">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
           {/* Left */}
           <div ref={heroLeftRef} className="opacity-0">
@@ -380,13 +408,13 @@ export default function PremiumDeveloperPortfolio() {
             </p>
 
             <div ref={heroButtonsRef} className="mt-10 flex flex-wrap gap-4">
-              <a href="#work" className="px-8 py-4 rounded-full bg-white text-black font-semibold hover:scale-105 transition duration-300 shadow-2xl">
+              <button onClick={(e) => scrollToSection("work", e.currentTarget)} className="cursor-pointer px-8 py-4 rounded-full bg-white text-black font-semibold hover:scale-105 transition duration-300 shadow-2xl">
                 {t.viewProjects}
-              </a>
+              </button>
 
-              <a href="#about" className="px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition duration-300">
+              <button onClick={(e) => scrollToSection("about", e.currentTarget)} className="cursor-pointer px-8 py-4 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition duration-300">
                 {t.philosophy}
-              </a>
+              </button>
             </div>
 
             <div className="mt-16 flex gap-10 text-white/50 text-sm">
@@ -485,7 +513,7 @@ export default function PremiumDeveloperPortfolio() {
         </div>
       </section>
 
-      {/* Work Section */}
+      {/* Project Section */}
       <section id="work" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
@@ -598,7 +626,7 @@ export default function PremiumDeveloperPortfolio() {
               {t.ctaText}
             </p>
 
-            <button className="mt-12 px-10 py-5 rounded-full bg-white text-black text-lg font-semibold hover:scale-105 transition duration-300 shadow-2xl">
+            <button onClick={(e) => scrollToSection("hero", e.currentTarget)} className="cursor-pointer mt-12 px-10 py-5 rounded-full bg-white text-black text-lg font-semibold hover:scale-105 transition duration-300 shadow-2xl">
               {t.startProject}
             </button>
           </div>
@@ -611,7 +639,7 @@ export default function PremiumDeveloperPortfolio() {
           <div>© 2026 Arne Seifert Webdesign. {t.rightsReserved}</div>
 
           <div className="flex gap-6">
-            <a href="https://instagram.com/maxi.madness06" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+            <a href="https://instagram.com/arne.webdesign" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               Instagram
             </a>
             <a href="https://facebook.com/Arne.Seifert06" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
