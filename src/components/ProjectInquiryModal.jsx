@@ -146,7 +146,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
 
         const timer = setTimeout(() => {
             closeModal();
-        }, 5000);
+        }, 10000);
 
         return () => clearTimeout(timer);
     }, [submitSuccess]);
