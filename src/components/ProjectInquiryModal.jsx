@@ -2,8 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import emailjs from "@emailjs/browser";
 
 export default function ProjectInquiryModal({ isOpen, onClose }) {
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
 
     const backdropRef = useRef(null);
     const modalRef = useRef(null);
@@ -73,6 +77,34 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
             },
         });
 
+    };
+
+    const handleSubmit = async () => {
+        setIsSubmitting(true);
+
+        try {
+            await emailjs.send(
+            "YOUR_SERVICE_ID",
+            "YOUR_TEMPLATE_ID",
+            {
+                projectType,
+                businessDescription,
+                name,
+                email,
+                phone,
+                budget,
+            },
+            "YOUR_PUBLIC_KEY"
+            );
+
+            setSubmitSuccess(true);
+
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong. Please try again.");
+        }
+
+        setIsSubmitting(false);
     };
 
   useEffect(() => {
@@ -415,13 +447,13 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                                 ← Back
                             </button>
 
-                            <button
-                                disabled={!name || !email || !budget}
+                           <button
+                                disabled={!name || !email || !budget || isSubmitting}
+                                onClick={handleSubmit}
                                 className="rounded-full bg-white px-8 py-3 font-semibold text-black transition disabled:opacity-40"
                             >
-                                Submit →
+                                {isSubmitting ? "Sending..." : "Submit →"}
                             </button>
-
                         </div>
 
                     </>
