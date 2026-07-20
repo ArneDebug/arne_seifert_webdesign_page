@@ -12,6 +12,8 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
     const backdropRef = useRef(null);
     const modalRef = useRef(null);
     const contentRef = useRef(null);
+    const successRef = useRef(null);
+    const checkmarkRef = useRef(null);
 
     const [shouldRender, setShouldRender] = useState(isOpen);
     const [step, setStep] = useState(1);
@@ -107,6 +109,48 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
         }
     };
 
+    const closeModal = () => {
+        setStep(1);
+        setProjectType("");
+        setBusinessDescription("");
+        setName("");
+        setEmail("");
+        setPhone("");
+        setBudget("");
+        setSubmitSuccess(false);
+
+        onClose();
+    };
+
+    useEffect(() => {
+        if (!submitSuccess) return;
+
+        gsap.fromTo(
+            checkmarkRef.current,
+            {
+            scale: 0,
+            rotate: -20,
+            },
+            {
+            scale: 1,
+            rotate: 0,
+            duration: 0.5,
+            ease: "back.out(2)",
+            delay: 0.2,
+            }
+        );
+    }, [submitSuccess]);
+
+    useEffect(() => {
+        if (!submitSuccess) return;
+
+        const timer = setTimeout(() => {
+            closeModal();
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [submitSuccess]);
+
   useEffect(() => {
     if (isOpen) {
         setShouldRender(true);
@@ -174,40 +218,86 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
 
   return (
     <div ref={backdropRef} className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-md">
-      <div ref={modalRef} className="w-full max-w-2xl rounded-3xl border border-white/10 bg-zinc-900 p-10 text-white shadow-2xl">
 
-            <div className="flex items-center justify-between">
+      <div ref={modalRef} className="flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#111] shadow-2xl">
 
-            <h2 className="text-4xl font-bold">
-                Start your Project
-            </h2>
+                {submitSuccess ? (
+                    <div
+                        ref={successRef}
+                        className="flex flex-1 flex-col items-center justify-center p-10 text-center"
+                    >
+                        <div ref={checkmarkRef} className="mb-8 flex h-24 w-24 items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-500/10 shadow-[0_0_40px_rgba(16,185,129,0.2)]">
+                        <svg
+                            className="h-12 w-12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            />
+                        </svg>
+                        </div>
 
-            <button
-                onClick={onClose}
-                className="text-2xl text-zinc-500 hover:text-white transition"
-            >
-                ✕
-            </button>
+                        <h2 className="text-3xl font-semibold">
+                            Let's build something great.
+                        </h2>
 
-            </div>
+                        <p className="mt-4 max-w-md text-zinc-400">
+                        Your inquiry has been sent successfully.
+                        <br />
+                        I'll review your project and get back to you within 24 hours.
+                        </p>
 
-            <p className="mt-4 text-zinc-400 text-lg">
-                Tell me a little about your business.
-                This only takes about a minute.
-            </p>
+                        <button
+                        onClick={closeModal}
+                        className="mt-10 rounded-full bg-white px-8 py-3 font-semibold text-black transition hover:scale-105"
+                        >
+                        Close
+                        </button>
+                    </div>
+                ) : (
 
-            <div className="mt-8 h-2 overflow-hidden rounded-full bg-white/10">
-                <div
-                    className="h-full rounded-full bg-white transition-all duration-500"
-                    style={{ width: `${(step / 3) * 100}%` }}
-                />
+                <>
+
+            <div className="flex-shrink-0 border-b border-white/10 bg-[#111] p-8">
+                <div className="flex items-center justify-between">
+
+                    <h2 className="text-4xl font-bold">
+                        Start your Project
+                    </h2>
+
+                    <button
+                        onClick={onClose}
+                        className="text-2xl text-zinc-500 hover:text-white transition"
+                    >
+                        ✕
+                    </button>
+
+                </div>
+
+                <p className="mt-4 text-zinc-400 text-lg">
+                    Tell me a little about your business.
+                    This only takes about a minute.
+                </p>
+
+                <div className="mt-8 h-2 overflow-hidden rounded-full bg-white/10">
+                    <div
+                        className="h-full rounded-full bg-white transition-all duration-500"
+                        style={{ width: `${(step / 3) * 100}%` }}
+                    />
+                </div>
             </div>
 
 
             <div
                 ref={contentRef}
-                className="mt-8"
+                className="flex-1 overflow-y-auto p-8"
             >
+                
 
 
                 {step === 1 && (
@@ -267,13 +357,6 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                             ))}
 
                         </div>
-
-                        <button
-                            disabled={!projectType}
-                            onClick={() => changeStep(2)}
-                            className="mt-10 w-full rounded-full bg-white py-4 font-semibold text-black transition disabled:cursor-not-allowed disabled:opacity-40">
-                            Continue →
-                        </button>
                     </>
                 )}
 
@@ -318,25 +401,6 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                             <span className="text-zinc-500">
                                 {businessDescription.length}/500
                             </span>
-
-                        </div>
-
-                        <div className="mt-10 flex justify-between gap-4">
-
-                            <button
-                                onClick={() => changeStep(1)}
-                                className="rounded-full border border-white/10 px-8 py-3 hover:border-white/30 transition"
-                            >
-                                ← Back
-                            </button>
-
-                            <button
-                                disabled={!businessDescription.trim()}
-                                onClick={() => changeStep(3)}
-                                className="rounded-full bg-white px-8 py-3 font-semibold text-black disabled:opacity-40"
-                            >
-                                Continue →
-                            </button>
 
                         </div>
                     </>
@@ -437,28 +501,59 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                             ))}
 
                         </div>
-
-                        <div className="mt-10 flex justify-between">
-
-                            <button
-                                onClick={() => changeStep(2)}
-                                className="rounded-full border border-white/10 px-8 py-3 hover:border-white/30 transition"
-                            >
-                                ← Back
-                            </button>
-
-                           <button
-                                disabled={!name || !email || !budget || isSubmitting}
-                                onClick={handleSubmit}
-                                className="rounded-full bg-white px-8 py-3 font-semibold text-black transition disabled:opacity-40"
-                            >
-                                {isSubmitting ? "Sending..." : "Submit →"}
-                            </button>
-                        </div>
-
                     </>
                 )}
             </div>
+            <div className="flex-shrink-0 border-t border-white/10 bg-[#111] p-6">
+
+                <div className="flex items-center justify-between">
+
+                    {step === 1 ? (
+                        <div />
+                    ) : (
+                        <button
+                            onClick={() => changeStep(step - 1)}
+                            className="rounded-full border border-white/10 px-8 py-3 transition hover:border-white/30"
+                        >
+                            ← Back
+                        </button>
+                    )}
+
+                    {step === 1 && (
+                        <button
+                            disabled={!projectType}
+                            onClick={() => changeStep(2)}
+                            className="rounded-full bg-white px-8 py-3 font-semibold text-black transition disabled:opacity-40"
+                        >
+                            Continue →
+                        </button>
+                    )}
+
+                    {step === 2 && (
+                        <button
+                            disabled={!businessDescription.trim()}
+                            onClick={() => changeStep(3)}
+                            className="rounded-full bg-white px-8 py-3 font-semibold text-black transition disabled:opacity-40"
+                        >
+                            Continue →
+                        </button>
+                    )}
+
+                    {step === 3 && (
+                        <button
+                            disabled={!name || !email || !budget || isSubmitting}
+                            onClick={handleSubmit}
+                            className="rounded-full bg-white px-8 py-3 font-semibold text-black transition disabled:opacity-40"
+                        >
+                            {isSubmitting ? "Sending..." : "Submit →"}
+                        </button>
+                    )}
+
+                </div>
+
+            </div>
+            </>
+        )}
       </div>
     </div>
   );
