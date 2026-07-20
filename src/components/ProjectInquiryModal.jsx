@@ -84,8 +84,8 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
 
         try {
             await emailjs.send(
-            "YOUR_SERVICE_ID",
-            "YOUR_TEMPLATE_ID",
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
             {
                 projectType,
                 businessDescription,
@@ -94,19 +94,19 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                 phone,
                 budget,
             },
-            "YOUR_PUBLIC_KEY"
+            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
             );
 
             setSubmitSuccess(true);
 
-        } catch (error) {
-            console.error(error);
+        } catch (err) {
+            console.error(err);
             alert("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
         }
-
-        setIsSubmitting(false);
     };
-
+    
   useEffect(() => {
     if (isOpen) {
         setShouldRender(true);
