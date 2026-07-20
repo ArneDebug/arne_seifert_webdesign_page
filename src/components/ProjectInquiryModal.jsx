@@ -87,12 +87,12 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
             process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
             process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
             {
-                projectType,
-                businessDescription,
-                name,
-                email,
-                phone,
-                budget,
+                name: name,
+                email: email,
+                phone: phone,
+                projectType: projectType,
+                budget: budget,
+                businessDescription: businessDescription,
             },
             process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
             );
@@ -106,7 +106,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
             setIsSubmitting(false);
         }
     };
-    
+
   useEffect(() => {
     if (isOpen) {
         setShouldRender(true);
