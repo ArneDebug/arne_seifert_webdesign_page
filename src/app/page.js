@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 export default function PremiumDeveloperPortfolio() {
 
   const [language, setLanguage] = useState('de')
+  const [modalOpen, setModalOpen] = useState(false);
 
   const navRef = useRef(null);
   const heroRef = useRef(null)
@@ -41,6 +42,24 @@ export default function PremiumDeveloperPortfolio() {
             duration: 1.2,
             ease: "power3.inOut",
           });
+        },
+      }
+    );
+  };
+
+  const openProjectModal = (button) => {
+    gsap.fromTo(
+      button,
+      { scale: 1 },
+      {
+        scale: 0.92,
+        duration: 0.12,
+        yoyo: true,
+        repeat: 1,
+        ease: "power2.out",
+        onComplete: () => {
+          gsap.set(button, { clearProps: "all" });
+          setModalOpen(true);
         },
       }
     );
@@ -150,140 +169,54 @@ export default function PremiumDeveloperPortfolio() {
   }
 
   const translations = {
-  en: {
-    work: "Work",
-    about: "About",
-    contact: "Contact",
+    en: {
+      work: "Work",
+      about: "About",
+      contact: "Contact",
 
-    navContact: "Let's Talk",
- 
-    modernWebDesignerAndDeveloper: "Modern Web Designer & Developer",
+      navContact: "Let's Talk",
+  
+      modernWebDesignerAndDeveloper: "Modern Web Designer & Developer",
 
-    heroTitle1: "Websites",
-    heroTitle2: "that feel",
-    heroHighlight: "premium.",
-    heroDescription:
-      "I build cinematic landing pages and modern digital experiences for businesses that want more than just a basic website.",
+      heroTitle1: "Websites",
+      heroTitle2: "that feel",
+      heroHighlight: "premium.",
+      heroDescription:
+        "I build cinematic landing pages and modern digital experiences for businesses that want more than just a basic website.",
 
-    viewProjects: "View Projects",
-    philosophy: "My Philosophy",
+      viewProjects: "View Projects",
+      philosophy: "My Philosophy",
 
-    projects: "Projects",
-    responsive: "Responsive",
-    fast: "Fast",
-    optimized: "Optimized",
+      projects: "Projects",
+      responsive: "Responsive",
+      fast: "Fast",
+      optimized: "Optimized",
 
-    smoothAnimations: "Smooth Animations",
-    gsapReady: "GSAP Ready",
-    modernLandingPagesAndPremiumDigitalExperiences: "Modern landing pages and premium digital experiences.",
-    responsiveDesign: "Responsive Design",
-    mobileFirst: "Mobile First",
+      smoothAnimations: "Smooth Animations",
+      gsapReady: "GSAP Ready",
+      modernLandingPagesAndPremiumDigitalExperiences: "Modern landing pages and premium digital experiences.",
+      responsiveDesign: "Responsive Design",
+      mobileFirst: "Mobile First",
 
-    selectedWork: "Selected Work",
-    designedTo: "Designed to",
-    standOut: "stand out.",
+      selectedWork: "Selected Work",
+      designedTo: "Designed to",
+      standOut: "stand out.",
 
-    projectList: [
-      {
-        title: "Classy Pizza Place",
-        category: "Restaurant",
-        image: "/pizza_place.png",
-        link: "#",
-      },
-      {
-        title: "Modern Tattoo Studio",
-        category: "Tattoo Studio",
-        image: "/tattoo-project.png",
-        link: "#",
-      },
-      {
-        title: "Strong Fitness Experiences",
-        category: "Fitness",
-        image: "/fitness-project.png",
-        link: "#",
-      },
-      {
-        title: "Mindset Coaching",
-        category: "Online Coaching",
-        image: "/mindset_coaching_project.png",
-        link: "#",
-      },
-    ],
-
-    philosophyLabel: "Philosophy",
-    philosophyTitle1: "Most websites are forgotten",
-    philosophyTitle2: "within seconds.",
-    philosophyText:
-      "A modern website is not just information. It’s trust, perception, identity and emotion.",
-
-    codeText1: "designing modern experiences",
-    codeText2: "building responsive interfaces",
-    codeText3: "optimizing performance",
-    codeText4: "creating cinematic web design",
-    
-    ctaLabel: "Let's Build Something",
-    ctaTitle1: "Your business",
-    ctaTitle2: "deserves better design.",
-
-    ctaText:
-      "Modern websites for businesses that want to look professional, trustworthy and visually different from the competition.",
-
-    startProject: "Start a Project",
-
-    rightsReserved: "All rights reserved.",
-
-  },
-
-  de: {
-    work: "Einblicke",
-    about: "Über mich",
-    contact: "Kontakt",
-
-    navContact: "Loslegen",
-
-    modernWebDesignerAndDeveloper: "Webdesigner & Entwickler",
-
-    heroTitle1: "Webseiten",
-    heroTitle2: "mit echtem",
-    heroHighlight: "Premium-Gefühl.",
-
-    heroDescription:
-      "Ich entwickle moderne Landingpages und digitale Erlebnisse für Unternehmen, die mehr wollen als nur eine einfache Webseite.",
-
-    viewProjects: "Projekte ansehen",
-    philosophy: "Meine Philosophie",
-
-    projects: "Projekte",
-    responsive: "Responsiv",
-    fast: "Schnell",
-    optimized: "Optimiert",
-
-    smoothAnimations: "Flüssige Animationen",
-    gsapReady: "GSAP-Optimiert",
-    modernLandingPagesAndPremiumDigitalExperiences: "Modernes Webdesign für starke Online-Auftritte",
-    responsiveDesign: "Responsives Design",
-    mobileFirst: "Mobil gedacht",
-
-    selectedWork: "Ausgewählte Projekte",
-    designedTo: "Entwickelt um",
-    standOut: "aufzufallen.",
-
-
-    projectList: [
+      projectList: [
         {
-          title: "Stilvolle Pizzeria",
+          title: "Classy Pizza Place",
           category: "Restaurant",
           image: "/pizza_place.png",
           link: "#",
         },
         {
-          title: "Modernes Tattoo Studio",
+          title: "Modern Tattoo Studio",
           category: "Tattoo Studio",
           image: "/tattoo-project.png",
           link: "#",
         },
         {
-          title: "Starke Fitness Erlebnisse",
+          title: "Strong Fitness Experiences",
           category: "Fitness",
           image: "/fitness-project.png",
           link: "#",
@@ -294,30 +227,116 @@ export default function PremiumDeveloperPortfolio() {
           image: "/mindset_coaching_project.png",
           link: "#",
         },
-    ],
+      ],
 
-    philosophyLabel: "Philosophie",
-    philosophyTitle1: "Die meisten Webseiten werden",
-    philosophyTitle2: "innerhalb von Sekunden vergessen.",
-    philosophyText: "Eine moderne Webseite ist mehr als nur Information. Sie vermittelt Vertrauen, Identität und Emotion.",
+      philosophyLabel: "Philosophy",
+      philosophyTitle1: "Most websites are forgotten",
+      philosophyTitle2: "within seconds.",
+      philosophyText:
+        "A modern website is not just information. It’s trust, perception, identity and emotion.",
 
-    codeText1: "moderne Nutzererlebnisse gestalten",
-    codeText2: "responsive Interfaces entwickeln",
-    codeText3: "Performance gezielt optimieren",
-    codeText4: "cinematisches Webdesign erschaffen",
+      codeText1: "designing modern experiences",
+      codeText2: "building responsive interfaces",
+      codeText3: "optimizing performance",
+      codeText4: "creating cinematic web design",
+      
+      ctaLabel: "Let's Build Something",
+      ctaTitle1: "Your business",
+      ctaTitle2: "deserves better design.",
 
-    ctaLabel: "Gemeinsam Ideen verwirklichen",
-    ctaTitle1: "Dein Unternehmen",
-    ctaTitle2: "verdient besseres Design.",
+      ctaText:
+        "Modern websites for businesses that want to look professional, trustworthy and visually different from the competition.",
 
-    ctaText: "Moderne Webseiten für Unternehmen, die professionell, vertrauenswürdig und einzigartig wirken möchten.",
+      startProject: "Start a Project",
 
-    startProject: "Projekt starten",
+      rightsReserved: "All rights reserved.",
 
-    rightsReserved: "Alle Rechte vorbehalten.",
+    },
 
-  },
-}
+    de: {
+      work: "Einblicke",
+      about: "Über mich",
+      contact: "Kontakt",
+
+      navContact: "Loslegen",
+
+      modernWebDesignerAndDeveloper: "Webdesigner & Entwickler",
+
+      heroTitle1: "Webseiten",
+      heroTitle2: "mit echtem",
+      heroHighlight: "Premium-Gefühl.",
+
+      heroDescription:
+        "Ich entwickle moderne Landingpages und digitale Erlebnisse für Unternehmen, die mehr wollen als nur eine einfache Webseite.",
+
+      viewProjects: "Projekte ansehen",
+      philosophy: "Meine Philosophie",
+
+      projects: "Projekte",
+      responsive: "Responsiv",
+      fast: "Schnell",
+      optimized: "Optimiert",
+
+      smoothAnimations: "Flüssige Animationen",
+      gsapReady: "GSAP-Optimiert",
+      modernLandingPagesAndPremiumDigitalExperiences: "Modernes Webdesign für starke Online-Auftritte",
+      responsiveDesign: "Responsives Design",
+      mobileFirst: "Mobil gedacht",
+
+      selectedWork: "Ausgewählte Projekte",
+      designedTo: "Entwickelt um",
+      standOut: "aufzufallen.",
+
+
+      projectList: [
+          {
+            title: "Stilvolle Pizzeria",
+            category: "Restaurant",
+            image: "/pizza_place.png",
+            link: "#",
+          },
+          {
+            title: "Modernes Tattoo Studio",
+            category: "Tattoo Studio",
+            image: "/tattoo-project.png",
+            link: "#",
+          },
+          {
+            title: "Starke Fitness Erlebnisse",
+            category: "Fitness",
+            image: "/fitness-project.png",
+            link: "#",
+          },
+          {
+            title: "Mindset Coaching",
+            category: "Online Coaching",
+            image: "/mindset_coaching_project.png",
+            link: "#",
+          },
+      ],
+
+      philosophyLabel: "Philosophie",
+      philosophyTitle1: "Die meisten Webseiten werden",
+      philosophyTitle2: "innerhalb von Sekunden vergessen.",
+      philosophyText: "Eine moderne Webseite ist mehr als nur Information. Sie vermittelt Vertrauen, Identität und Emotion.",
+
+      codeText1: "moderne Nutzererlebnisse gestalten",
+      codeText2: "responsive Interfaces entwickeln",
+      codeText3: "Performance gezielt optimieren",
+      codeText4: "cinematisches Webdesign erschaffen",
+
+      ctaLabel: "Gemeinsam Ideen verwirklichen",
+      ctaTitle1: "Dein Unternehmen",
+      ctaTitle2: "verdient besseres Design.",
+
+      ctaText: "Moderne Webseiten für Unternehmen, die professionell, vertrauenswürdig und einzigartig wirken möchten.",
+
+      startProject: "Projekt starten",
+
+      rightsReserved: "Alle Rechte vorbehalten.",
+
+    },
+  }
   const t = translations[language]
 
   const projects = t.projectList
@@ -648,7 +667,7 @@ export default function PremiumDeveloperPortfolio() {
               {t.ctaText}
             </p>
 
-            <button onClick={(e) => scrollToSection("hero", e.currentTarget)} className="cursor-pointer mt-12 px-10 py-5 rounded-full bg-white text-black text-lg font-semibold hover:scale-105 transition duration-300 shadow-2xl">
+            <button onClick={(e) => openProjectModal(e.currentTarget)} className="cursor-pointer mt-12 px-10 py-5 rounded-full bg-white text-black text-lg font-semibold hover:scale-105 transition duration-300 shadow-2xl">
               {t.startProject}
             </button>
           </div>
@@ -676,6 +695,14 @@ export default function PremiumDeveloperPortfolio() {
           </div>
         </div>
       </footer>
+
+      <ProjectInquiryModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />      
+
     </div>
+  
   )
+
 }
