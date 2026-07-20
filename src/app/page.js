@@ -1,5 +1,6 @@
 'use client'
 
+import ProjectInquiryModal from "../components/ProjectInquiryModal";
 import { useEffect, useState, useRef } from 'react';
 import { useLayoutEffect } from "react";
 
