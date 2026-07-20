@@ -19,6 +19,8 @@ export default function PremiumDeveloperPortfolio() {
   const heroLeftRef = useRef(null)
   const heroRightRef = useRef(null)
   const heroButtonsRef = useRef(null)
+
+  const projectsRef = useRef([]);
   
   const scrollToSection = (id, button) => {
     gsap.fromTo(
@@ -120,6 +122,24 @@ export default function PremiumDeveloperPortfolio() {
       duration: 0.9,
       ease: "back.out(1.8)",
     }, "-=0.1");
+
+    projectsRef.current.forEach((card) => {
+      gsap.from(card, {
+        y: 40,
+        opacity: 0,
+        scale: 0.97,
+        duration: 0.2,
+        ease: "power3.out",
+
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+    });
+
 
   }, []);
 
@@ -531,6 +551,7 @@ export default function PremiumDeveloperPortfolio() {
             {projects.map((project, index) => (
               <div
                 key={index}
+                ref={(el) => (projectsRef.current[index] = el)}
                 className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] transition duration-500"
               >
                 <div className="h-[320px] md:h-[400px] bg-gradient-to-br from-white/5 to-white/[0.02] p-8 flex flex-col justify-between">
