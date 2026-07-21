@@ -85,11 +85,6 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
         setIsSubmitting(true);
 
         try {
-            console.log({
-            service: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-            template: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-            publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-            });
             await emailjs.send(
             process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
             process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
