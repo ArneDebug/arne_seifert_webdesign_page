@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Mail, Phone, X } from "lucide-react";
 
-export default function ContactModal({ isOpen, onClose }) {
+export default function ContactModal({ isOpen, onClose, onStartProject }) {
     
     const [shouldRender, setShouldRender] = useState(false);
     const backdropRef = useRef(null);
@@ -136,6 +136,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
                 {/* CTA */}
                 <button
+                    onClick={onStartProject}
                     className="cursor-pointer mt-8 w-full rounded-full bg-white py-4 text-black font-medium transition hover:scale-[1.02]"
                 >
                     Start your Project →

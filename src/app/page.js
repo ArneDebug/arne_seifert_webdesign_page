@@ -839,6 +839,13 @@ export default function PremiumDeveloperPortfolio() {
       <ContactModal
         isOpen={contactOpen}
         onClose={() => setContactOpen(false)}
+        onStartProject={() => {
+            setContactOpen(false);
+
+            setTimeout(() => {
+                setModalOpen(true);
+            }, 300);
+        }}
      />      
 
     </div>
