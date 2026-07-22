@@ -91,7 +91,7 @@ export default function ContactModal({ isOpen, onClose }) {
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute right-6 top-6 text-white/60 transition hover:text-white w-10 h-10 rounded-full hover:bg-white/10"
+                    className="cursor-pointer absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full text-white/60 transition-all duration-200 hover:bg-white/10 hover:text-white"
                 >
                     <X className="h-5 w-5" />
                 </button>
@@ -110,17 +110,21 @@ export default function ContactModal({ isOpen, onClose }) {
                 <div className="mt-8 space-y-4">
 
                     <a
-                        href="mailto:YOURMAIL"
-                        className="block text-white hover:text-white/80 transition"
+                        href="mailto:arnemaxseifert@gmail.com"
+                        className="flex items-center gap-3 text-white transition hover:text-white/80"
                     >
-                        <Mail className="h-5 w-5" /> arnemaxseifert@gmail.com
+                        <Mail className="h-5 w-5 flex-shrink-0" />
+
+                        <span>arnemaxseifert@gmail.com</span>
                     </a>
 
                     <a
-                        href="tel:+49..."
-                        className="block text-white hover:text-white/80 transition"
+                        href="tel:+491631292449"
+                        className="flex items-center gap-3 text-white transition hover:text-white/80"
                     >
-                        <Phone className="h-5 w-5" /> +49 163 1292449
+                        <Phone className="h-5 w-5 flex-shrink-0" />
+
+                        <span>+49 163 1292449</span>
                     </a>
 
                 </div>
@@ -132,7 +136,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
                 {/* CTA */}
                 <button
-                    className="mt-8 w-full rounded-full bg-white py-4 text-black font-medium transition hover:scale-[1.02]"
+                    className="cursor-pointer mt-8 w-full rounded-full bg-white py-4 text-black font-medium transition hover:scale-[1.02]"
                 >
                     Start your Project →
                 </button>
