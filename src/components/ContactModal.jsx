@@ -112,14 +112,14 @@ export default function ContactModal({ isOpen, onClose }) {
                         href="mailto:YOURMAIL"
                         className="block text-white hover:text-white/80 transition"
                     >
-                        <Mail /> arnemaxseifert@gmail.com
+                        arnemaxseifert@gmail.com
                     </a>
 
                     <a
                         href="tel:+49..."
                         className="block text-white hover:text-white/80 transition"
                     >
-                        <Phone /> +49 163 1292449
+                        +49 163 1292449
                     </a>
 
                 </div>
