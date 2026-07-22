@@ -84,13 +84,13 @@ export default function ContactModal({ isOpen, onClose }) {
         >
             <div
                 ref={modalRef}
-                className="relative w-full max-w-lg rounded-3xl bg-[#161616] p-8"
+                className="relative w-full max-w-[500px] rounded-3xl bg-[#161616] px-10 py-10"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute right-6 top-6 text-white/60 transition hover:text-white"
+                    className="absolute right-6 top-6 text-white/60 transition hover:text-white w-10 h-10 rounded-full hover:bg-white/10"
                 >
                     ✕
                 </button>
@@ -101,7 +101,7 @@ export default function ContactModal({ isOpen, onClose }) {
                 </h2>
 
                 <p className="mt-3 text-white/70 leading-relaxed">
-                    Whether you already have a project or just a question,
+                    Have a project in mind or just a quick question?
                     I'd love to hear from you.
                 </p>
 
@@ -112,14 +112,14 @@ export default function ContactModal({ isOpen, onClose }) {
                         href="mailto:YOURMAIL"
                         className="block text-white hover:text-white/80 transition"
                     >
-                        ✉ arnemaxseifert@gmail.com
+                        <Mail /> arnemaxseifert@gmail.com
                     </a>
 
                     <a
                         href="tel:+49..."
                         className="block text-white hover:text-white/80 transition"
                     >
-                        📞 +49 163 1292449
+                        <Phone /> +49 163 1292449
                     </a>
 
                 </div>
@@ -133,7 +133,7 @@ export default function ContactModal({ isOpen, onClose }) {
                 <button
                     className="mt-8 w-full rounded-full bg-white py-4 text-black font-medium transition hover:scale-[1.02]"
                 >
-                    Start a Project
+                    Start your Project →
                 </button>
 
             </div>
