@@ -823,7 +823,7 @@ export default function PremiumDeveloperPortfolio() {
             <a href="https://github.com/ArneDebug" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               GitHub
             </a>
-            <button onClick={() => setContactOpen(true)} className="hover:text-white transition">
+            <button onClick={() => setContactOpen(true)} className="cursor-pointer hover:text-white transition">
               {t.contact}
             </button>
           </div>
