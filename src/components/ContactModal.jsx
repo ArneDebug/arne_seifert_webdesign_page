@@ -3,11 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-export default function ProjectInquiryModal({ isOpen, onClose }) {
+export default function ContactModal({ isOpen, onClose }) {
     
-    const [shouldRender, setShouldRender] = useState(isOpen);
+    const [shouldRender, setShouldRender] = useState(false);
     const backdropRef = useRef(null);
     const modalRef = useRef(null);
+
+    const handleClose = () => {
+        onClose();
+    };
 
     useEffect(() => {
         if (isOpen) {
@@ -75,7 +79,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
     return (
         <div
             ref={backdropRef}
-            className="fixed inset-0 bg-black/70 flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center"
             onClick={handleClose}
         >
             <div

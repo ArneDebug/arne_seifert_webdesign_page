@@ -1,6 +1,7 @@
 'use client'
 
 import ProjectInquiryModal from "../components/ProjectInquiryModal";
+import ContactModal from "../components/ContactModal";
 import { useEffect, useState, useRef } from 'react';
 import { useLayoutEffect } from "react";
 
@@ -15,6 +16,7 @@ export default function PremiumDeveloperPortfolio() {
 
   const [language, setLanguage] = useState('de')
   const [modalOpen, setModalOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const navRef = useRef(null);
   const heroRef = useRef(null)
@@ -821,9 +823,9 @@ export default function PremiumDeveloperPortfolio() {
             <a href="https://github.com/ArneDebug" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               GitHub
             </a>
-            <a href="#" className="hover:text-white transition">
+            <button onClick={() => setContactOpen(true)} className="hover:text-white transition">
               {t.contact}
-            </a>
+            </button>
           </div>
         </div>
       </footer>
@@ -832,7 +834,12 @@ export default function PremiumDeveloperPortfolio() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         t={t.modal}
-      />      
+      />
+
+      <ContactModal
+        isOpen={contactOpen}
+        onClose={() => setContactOpen(false)}
+     />      
 
     </div>
   
