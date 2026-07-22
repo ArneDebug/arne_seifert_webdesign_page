@@ -450,7 +450,7 @@ export default function PremiumDeveloperPortfolio() {
         starterPrice: "ab 500 €",
         starterDescription: "Perfekt für Landingpages oder einfache Onepager.",
 
-        growth: "Growth",
+        growth: "Pro",
         growthPrice: "ab 1.000 €",
         growthDescription: "Ideal für die meisten Unternehmenswebseiten.",
 
