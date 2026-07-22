@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Mail, Phone, X } from "lucide-react";
 
-export default function ContactModal({ isOpen, onClose, onStartProject }) {
+export default function ContactModal({ isOpen, onClose, onStartProject, t }) {
     
     const [shouldRender, setShouldRender] = useState(false);
     const backdropRef = useRef(null);
@@ -98,12 +98,11 @@ export default function ContactModal({ isOpen, onClose, onStartProject }) {
 
                 {/* Heading */}
                 <h2 className="text-3xl font-semibold text-white">
-                    Let's connect.
+                    {t.title}
                 </h2>
 
                 <p className="mt-3 text-white/70 leading-relaxed">
-                    Have a project in mind or just a quick question?
-                    I'd love to hear from you.
+                    {t.subtitle}
                 </p>
 
                 {/* Contact Info */}
@@ -131,7 +130,7 @@ export default function ContactModal({ isOpen, onClose, onStartProject }) {
 
                 {/* Small note */}
                 <p className="mt-8 text-sm text-white/50">
-                    Usually replies within 24 hours.
+                    {t.replyTime}
                 </p>
 
                 {/* CTA */}
@@ -139,7 +138,7 @@ export default function ContactModal({ isOpen, onClose, onStartProject }) {
                     onClick={onStartProject}
                     className="cursor-pointer mt-8 w-full rounded-full bg-white py-4 text-black font-medium transition hover:scale-[1.02]"
                 >
-                    Start your Project →
+                    {t.startProject}
                 </button>
 
             </div>

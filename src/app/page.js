@@ -317,7 +317,16 @@ export default function PremiumDeveloperPortfolio() {
         continue: "Continue →",
         submit: "Submit →",
         sending: "Sending...",
-      }
+      },
+
+      contactMod: {
+        title: "Let's connect.",
+        subtitle: "Have a project in mind or just a quick question? I'd love to hear from you.",
+        email: "Email",
+        phone: "Phone",
+        replyTime: "Usually replies within 24 hours.",
+        startProject: "Start your Project →",
+      },
 
     },
 
@@ -467,7 +476,16 @@ export default function PremiumDeveloperPortfolio() {
         continue: "Weiter →",
         submit: "Absenden →",
         sending: "Wird gesendet...",
-      }
+      },
+
+      contactMod: {
+        title: "Verbinde dich.",
+        subtitle: "Du hast ein Projekt im Kopf oder nur eine kurze Frage? Ich freue mich darauf, von dir zu hören.",
+        email: "E-Mail",
+        phone: "Telefon",
+        replyTime: "Antwort in der Regel innerhalb von 24 Stunden.",
+        startProject: "Dein Projekt starten →",
+      },
 
     },
   }
@@ -846,6 +864,7 @@ export default function PremiumDeveloperPortfolio() {
                 setModalOpen(true);
             }, 300);
         }}
+        t={t.contactMod}
      />      
 
     </div>
