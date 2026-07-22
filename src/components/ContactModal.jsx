@@ -78,59 +78,65 @@ export default function ContactModal({ isOpen, onClose }) {
 
     return (
         <div
-            ref={modalRef}
-            className="relative w-full max-w-lg rounded-3xl bg-[#161616] p-8"
-            onClick={(e) => e.stopPropagation()}
+        ref={backdropRef}
+        className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center"
+        onClick={handleClose}
         >
-            {/* Close Button */}
-            <button
-                onClick={handleClose}
-                className="absolute right-6 top-6 text-white/60 transition hover:text-white"
+            <div
+                ref={modalRef}
+                className="relative w-full max-w-lg rounded-3xl bg-[#161616] p-8"
+                onClick={(e) => e.stopPropagation()}
             >
-                ✕
-            </button>
-
-            {/* Heading */}
-            <h2 className="text-3xl font-semibold text-white">
-                Let's connect.
-            </h2>
-
-            <p className="mt-3 text-white/70 leading-relaxed">
-                Whether you already have a project or just a question,
-                I'd love to hear from you.
-            </p>
-
-            {/* Contact Info */}
-            <div className="mt-8 space-y-4">
-
-                <a
-                    href="mailto:YOURMAIL"
-                    className="block text-white hover:text-white/80 transition"
+                {/* Close Button */}
+                <button
+                    onClick={handleClose}
+                    className="absolute right-6 top-6 text-white/60 transition hover:text-white"
                 >
-                    ✉ arnemaxseifert@gmail.com
-                </a>
+                    ✕
+                </button>
 
-                <a
-                    href="tel:+49..."
-                    className="block text-white hover:text-white/80 transition"
+                {/* Heading */}
+                <h2 className="text-3xl font-semibold text-white">
+                    Let's connect.
+                </h2>
+
+                <p className="mt-3 text-white/70 leading-relaxed">
+                    Whether you already have a project or just a question,
+                    I'd love to hear from you.
+                </p>
+
+                {/* Contact Info */}
+                <div className="mt-8 space-y-4">
+
+                    <a
+                        href="mailto:YOURMAIL"
+                        className="block text-white hover:text-white/80 transition"
+                    >
+                        ✉ arnemaxseifert@gmail.com
+                    </a>
+
+                    <a
+                        href="tel:+49..."
+                        className="block text-white hover:text-white/80 transition"
+                    >
+                        📞 +49 163 1292449
+                    </a>
+
+                </div>
+
+                {/* Small note */}
+                <p className="mt-8 text-sm text-white/50">
+                    Usually replies within 24 hours.
+                </p>
+
+                {/* CTA */}
+                <button
+                    className="mt-8 w-full rounded-full bg-white py-4 text-black font-medium transition hover:scale-[1.02]"
                 >
-                    📞 +49 163 1292449
-                </a>
+                    Start a Project
+                </button>
 
             </div>
-
-            {/* Small note */}
-            <p className="mt-8 text-sm text-white/50">
-                Usually replies within 24 hours.
-            </p>
-
-            {/* CTA */}
-            <button
-                className="mt-8 w-full rounded-full bg-white py-4 text-black font-medium transition hover:scale-[1.02]"
-            >
-                Start a Project
-            </button>
-
         </div>
     );
     
