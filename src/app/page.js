@@ -251,6 +251,72 @@ export default function PremiumDeveloperPortfolio() {
 
       rightsReserved: "All rights reserved.",
 
+     modal: {
+        title: "Start your Project",
+        subtitle: "Tell me a little about your business. This only takes about a minute.",
+
+        successTitle: "Let's build something great.",
+        successText: "Your inquiry has been sent successfully.\nI'll review your project and get back to you within 24 hours.",
+        close: "Close",
+
+        step1Title: "What kind of website do you need?",
+
+        landingPage: "Landing Page",
+        landingPageDescription: "Perfect for promoting one service or product.",
+
+        businessWebsite: "Business Website",
+        businessWebsiteDescription: "A complete online presence for your company.",
+
+        portfolio: "Portfolio",
+        portfolioDescription: "Showcase your work and previous projects.",
+
+        onlineShop: "Online Shop",
+        onlineShopDescription: "Sell products directly through your website.",
+
+        notSure: "I'm not sure yet",
+        notSureDescription: "We'll figure out the best solution together.",
+
+        step2Title: "Tell me about your project",
+        step2Subtitle: "The more details you provide, the better I can understand your goals.",
+
+        projectPlaceholder: "Describe your business, what you offer, your goals, and anything else you'd like me to know...",
+
+        helper1: "A few sentences are enough to get started.",
+        helper2: "Great start!",
+        helper3: "Nice amount of detail.",
+        helper4: "Perfect! This gives me a good understanding.",
+
+        step3Title: "Almost done!",
+        step3Subtitle: "Just a few contact details so I can get back to you.",
+
+        namePlaceholder: "Your Name",
+        emailPlaceholder: "Email Address",
+        phonePlaceholder: "Phone Number (optional)",
+
+        budgetTitle: "Which option fits your project best?",
+        budgetSubtitle: "This just helps me understand the scope. We can always adjust it later.",
+
+        starter: "Starter",
+        starterPrice: "from €500",
+        starterDescription: "Perfect for simple landing pages or one-page websites.",
+
+        growth: "Growth",
+        growthPrice: "€1,000+",
+        growthDescription: "Ideal for most small business websites.",
+
+        premium: "Premium",
+        premiumPrice: "Custom",
+        premiumDescription: "Custom websites with advanced functionality.",
+
+        unsureBudget: "Not sure yet",
+        unsureBudgetDescription: "Let's find the right solution together.",
+
+        back: "← Back",
+        continue: "Continue →",
+        submit: "Submit →",
+        sending: "Sending...",
+      }
+
     },
 
     de: {
@@ -334,6 +400,72 @@ export default function PremiumDeveloperPortfolio() {
       startProject: "Projekt starten",
 
       rightsReserved: "Alle Rechte vorbehalten.",
+
+      modal: {
+        title: "Projekt starten",
+        subtitle: "Erzähl mir etwas über dein Unternehmen. Das dauert nur etwa eine Minute.",
+
+        successTitle: "Lass uns etwas Großartiges erschaffen.",
+        successText: "Deine Anfrage wurde erfolgreich versendet.\nIch schaue sie mir an und melde mich innerhalb von 24 Stunden bei dir.",
+        close: "Schließen",
+
+        step1Title: "Welche Art von Webseite benötigst du?",
+
+        landingPage: "Landingpage",
+        landingPageDescription: "Ideal, um eine Dienstleistung oder ein Produkt zu präsentieren.",
+
+        businessWebsite: "Unternehmenswebseite",
+        businessWebsiteDescription: "Ein professioneller Webauftritt für dein Unternehmen.",
+
+        portfolio: "Portfolio",
+        portfolioDescription: "Präsentiere deine Arbeiten und bisherigen Projekte.",
+
+        onlineShop: "Onlineshop",
+        onlineShopDescription: "Verkaufe deine Produkte direkt über deine Webseite.",
+
+        notSure: "Ich bin mir noch nicht sicher",
+        notSureDescription: "Gemeinsam finden wir die passende Lösung.",
+
+        step2Title: "Erzähl mir von deinem Projekt",
+        step2Subtitle: "Je mehr Informationen du angibst, desto besser kann ich deine Ziele verstehen.",
+
+        projectPlaceholder: "Beschreibe dein Unternehmen, deine Leistungen, deine Ziele und alles Weitere, was ich wissen sollte...",
+
+        helper1: "Ein paar Sätze reichen völlig aus.",
+        helper2: "Guter Anfang!",
+        helper3: "Das sind schon hilfreiche Informationen.",
+        helper4: "Perfekt! So bekomme ich ein gutes Bild von deinem Projekt.",
+
+        step3Title: "Fast geschafft!",
+        step3Subtitle: "Nur noch ein paar Kontaktdaten, damit ich mich bei dir melden kann.",
+
+        namePlaceholder: "Dein Name",
+        emailPlaceholder: "E-Mail-Adresse",
+        phonePlaceholder: "Telefonnummer (optional)",
+
+        budgetTitle: "Welche Option passt am besten zu deinem Projekt?",
+        budgetSubtitle: "Das hilft mir dabei, den Umfang besser einzuschätzen. Wir können das später jederzeit anpassen.",
+
+        starter: "Starter",
+        starterPrice: "ab 500 €",
+        starterDescription: "Perfekt für Landingpages oder einfache Onepager.",
+
+        growth: "Growth",
+        growthPrice: "ab 1.000 €",
+        growthDescription: "Ideal für die meisten Unternehmenswebseiten.",
+
+        premium: "Premium",
+        premiumPrice: "Individuell",
+        premiumDescription: "Maßgeschneiderte Webseiten mit erweiterten Funktionen.",
+
+        unsureBudget: "Noch unsicher",
+        unsureBudgetDescription: "Gemeinsam finden wir die passende Lösung.",
+
+        back: "← Zurück",
+        continue: "Weiter →",
+        submit: "Absenden →",
+        sending: "Wird gesendet...",
+      }
 
     },
   }
@@ -699,6 +831,7 @@ export default function PremiumDeveloperPortfolio() {
       <ProjectInquiryModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
+        t={t.modal}
       />      
 
     </div>

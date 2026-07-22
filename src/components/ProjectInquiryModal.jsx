@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import emailjs from "@emailjs/browser";
 
-export default function ProjectInquiryModal({ isOpen, onClose }) {
+export default function ProjectInquiryModal({ isOpen, onClose, t }) {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -27,24 +27,24 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
 
     const budgetOptions = [
         {
-            title: "Starter",
-            price: "from €500",
-            description: "Perfect for simple landing pages or one-page websites.",
+            title: t.starter,
+            price: t.starterPrice,
+            description: t.starterDescription,
         },
         {
-            title: "Growth",
-            price: "€1,000+",
-            description: "Ideal for most small business websites.",
+            title: t.growth,
+            price: t.growthPrice,
+            description: t.growthDescription,
         },
         {
-            title: "Premium",
-            price: "Custom",
-            description: "Custom websites with advanced functionality.",
+            title: t.premium,
+            price: t.premiumPrice,
+            description: t.premiumDescription,
         },
         {
-            title: "Not sure yet",
+            title: t.unsureBudget,
             price: "",
-            description: "Let's find the right solution together.",
+            description: t.unsureBudgetDescription,
         },
     ];
 
@@ -243,20 +243,21 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                         </div>
 
                         <h2 className="text-3xl font-semibold">
-                            Let's build something great.
+                            {t.successTitle}
                         </h2>
 
-                        <p className="mt-4 max-w-md text-zinc-400">
-                        Your inquiry has been sent successfully.
-                        <br />
-                        I'll review your project and get back to you within 24 hours.
-                        </p>
+                        {t.successText.split("\n").map((line, index) => (
+                            <span key={index}>
+                                {line}
+                                <br />
+                            </span>
+                        ))}
 
                         <button
                         onClick={closeModal}
                         className="mt-10 rounded-full bg-white px-8 py-3 font-semibold text-black transition hover:scale-105"
                         >
-                        Close
+                        {t.close}
                         </button>
                     </div>
                 ) : (
@@ -267,7 +268,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                 <div className="flex items-center justify-between">
 
                     <h2 className="text-4xl font-bold">
-                        Start your Project
+                        {t.title}
                     </h2>
 
                     <button
@@ -280,8 +281,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                 </div>
 
                 <p className="mt-4 text-zinc-400 text-lg">
-                    Tell me a little about your business.
-                    This only takes about a minute.
+                    {t.subtitle}
                 </p>
 
                 <div className="mt-8 h-2 overflow-hidden rounded-full bg-white/10">
@@ -303,31 +303,31 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                 {step === 1 && (
                     <>
                         <h3 className="mt-10 text-2xl font-semibold">
-                        What kind of website do you need?
+                        {t.step1Title}
                         </h3>
 
                         <div className="mt-8 grid gap-4">
 
                             {[
                                 {
-                                    title: "Landing Page",
-                                    description: "Perfect for promoting one service or product.",
+                                    title: t.landingPage,
+                                    description: t.landingPageDescription,
                                 },
                                 {
-                                    title: "Business Website",
-                                    description: "A complete online presence for your company.",
+                                    title: t.businessWebsite,
+                                    description: t.businessWebsiteDescription,
                                 },
                                 {
-                                    title: "Portfolio",
-                                    description: "Showcase your work and previous projects.",
+                                    title: t.portfolio,
+                                    description: t.portfolioDescription,
                                 },
                                 {
-                                    title: "Online Shop",
-                                    description: "Sell products directly through your website.",
+                                    title: t.onlineShop,
+                                    description: t.onlineShopDescription,
                                 },
                                 {
-                                    title: "I'm not sure yet",
-                                    description: "We'll figure out the best solution together.",
+                                    title: t.notSure,
+                                    description: t.notSureDescription,
                                 },
                             ].map((option) => (
 
@@ -363,17 +363,17 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                 {step === 2 && (
                     <>
                         <h3 className="mt-10 text-2xl font-semibold">
-                            Tell me about your project
+                            {t.step2Title}
                         </h3>
 
                         <p className="mt-2 text-zinc-400">
-                            The more details you provide, the better I can understand your goals.
+                            {t.step2Subtitle}
                         </p>
 
                         <textarea
                             value={businessDescription}
                             onChange={(e) => setBusinessDescription(e.target.value)}
-                            placeholder="Describe your business, what you offer, your goals, and anything else you'd like me to know..."
+                            placeholder={t.projectPlaceholder}
                             maxLength={500}
                             className="mt-8 h-48 w-full resize-none rounded-2xl border border-white/10 bg-white/5 p-5 outline-none transition focus:border-white/40"
                         />
@@ -383,18 +383,18 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                             <span className="text-zinc-400">
 
                                 {businessDescription.length < 50 &&
-                                    "A few sentences are enough to get started."}
+                                    t.helper1}
 
                                 {businessDescription.length >= 50 &&
                                     businessDescription.length < 150 &&
-                                    "Great start!"}
+                                    t.helper2}
 
                                 {businessDescription.length >= 150 &&
                                     businessDescription.length < 300 &&
-                                    "Nice amount of detail."}
+                                    t.helper3}
 
                                 {businessDescription.length >= 300 &&
-                                    "Perfect! This gives me a good understanding."}
+                                    t.helper4}
 
                             </span>
 
@@ -409,18 +409,18 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                 {step === 3 && (
                     <>
                         <h3 className="mt-10 text-2xl font-semibold">
-                            Almost done!
+                            {t.step3Title}
                         </h3>
 
                         <p className="mt-2 text-zinc-400">
-                            Just a few contact details so I can get back to you.
+                            {t.step3Subtitle}
                         </p>
 
                         <div className="mt-8 space-y-5">
 
                             <input
                                 type="text"
-                                placeholder="Your Name"
+                                placeholder={t.namePlaceholder}
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 className="w-full rounded-2xl border border-white/10 bg-white/5 p-4 outline-none transition focus:border-white/40"
@@ -428,7 +428,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
 
                             <input
                                 type="email"
-                                placeholder="Email Address"
+                                placeholder={t.emailPlaceholder}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-full rounded-2xl border border-white/10 bg-white/5 p-4 outline-none transition focus:border-white/40"
@@ -436,7 +436,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
 
                             <input
                                 type="text"
-                                placeholder="Phone Number (optional)"
+                                placeholder={t.phonePlaceholder}
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
                                 className="w-full rounded-2xl border border-white/10 bg-white/5 p-4 outline-none transition focus:border-white/40"
@@ -445,11 +445,11 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                         </div>
 
                         <h4 className="mt-10 text-lg font-semibold">
-                            Which option fits your project best?
+                            {t.budgetTitle}
                         </h4>
 
                         <p className="mt-2 text-zinc-400">
-                            This just helps me understand the scope. We can always adjust it later.
+                            {t.budgetSubtitle}
                         </p>
 
                     <div className="mt-4 grid gap-4">
@@ -515,7 +515,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                             onClick={() => changeStep(step - 1)}
                             className="rounded-full border border-white/10 px-8 py-3 transition hover:border-white/30"
                         >
-                            ← Back
+                            {t.back}
                         </button>
                     )}
 
@@ -525,7 +525,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                             onClick={() => changeStep(2)}
                             className="rounded-full bg-white px-8 py-3 font-semibold text-black transition disabled:opacity-40"
                         >
-                            Continue →
+                            {t.continue}
                         </button>
                     )}
 
@@ -535,7 +535,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                             onClick={() => changeStep(3)}
                             className="rounded-full bg-white px-8 py-3 font-semibold text-black transition disabled:opacity-40"
                         >
-                            Continue →
+                            {t.continue}
                         </button>
                     )}
 
@@ -545,7 +545,7 @@ export default function ProjectInquiryModal({ isOpen, onClose }) {
                             onClick={handleSubmit}
                             className="rounded-full bg-white px-8 py-3 font-semibold text-black transition disabled:opacity-40"
                         >
-                            {isSubmitting ? "Sending..." : "Submit →"}
+                            {isSubmitting ? t.sending : t.submit}
                         </button>
                     )}
 
