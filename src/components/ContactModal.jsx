@@ -14,12 +14,6 @@ export default function ContactModal({ isOpen, onClose }) {
         onClose();
     };
 
-    createIcons({
-        icons: {
-            phone
-        }
-    });
-
     useEffect(() => {
         if (isOpen) {
             setShouldRender(true);
