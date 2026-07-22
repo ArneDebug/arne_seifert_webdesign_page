@@ -111,7 +111,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
                     <a
                         href="mailto:arnemaxseifert@gmail.com"
-                        className="flex items-center gap-3 text-white transition hover:text-white/80"
+                        className="flex items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-white/5"
                     >
                         <Mail className="h-5 w-5 flex-shrink-0" />
 
@@ -120,7 +120,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
                     <a
                         href="tel:+491631292449"
-                        className="flex items-center gap-3 text-white transition hover:text-white/80"
+                        className="flex items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-white/5"
                     >
                         <Phone className="h-5 w-5 flex-shrink-0" />
 
