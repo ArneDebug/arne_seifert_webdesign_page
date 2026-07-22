@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { Mail, Phone, X } from "lucide-react";
 
 export default function ContactModal({ isOpen, onClose }) {
     
@@ -12,6 +13,12 @@ export default function ContactModal({ isOpen, onClose }) {
     const handleClose = () => {
         onClose();
     };
+
+    createIcons({
+        icons: {
+            phone
+        }
+    });
 
     useEffect(() => {
         if (isOpen) {
@@ -92,7 +99,7 @@ export default function ContactModal({ isOpen, onClose }) {
                     onClick={handleClose}
                     className="absolute right-6 top-6 text-white/60 transition hover:text-white w-10 h-10 rounded-full hover:bg-white/10"
                 >
-                    ✕
+                    <X className="h-5 w-5" />
                 </button>
 
                 {/* Heading */}
@@ -112,14 +119,14 @@ export default function ContactModal({ isOpen, onClose }) {
                         href="mailto:YOURMAIL"
                         className="block text-white hover:text-white/80 transition"
                     >
-                        arnemaxseifert@gmail.com
+                        <Mail className="h-5 w-5" /> arnemaxseifert@gmail.com
                     </a>
 
                     <a
                         href="tel:+49..."
                         className="block text-white hover:text-white/80 transition"
                     >
-                        +49 163 1292449
+                        <Phone className="h-5 w-5" /> +49 163 1292449
                     </a>
 
                 </div>
