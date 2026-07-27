@@ -157,6 +157,22 @@ export const translations = {
         startProject: "Start your Project →",
       },
 
+      impressum: {
+        back: "← Back to Home",
+        title: "Legal Notice",
+        subtitle: "Information according to § 5 TMG",
+
+        provider: "Provider",
+        contact: "Contact",
+        responsible: "Responsible for content according to § 18 MStV",
+        lastUpdated: "Last updated: 27 July 2026",
+
+        country: "Germany",
+
+        email: "Email",
+        phone: "Phone",
+      },
+
     },
 
     de: {
@@ -314,6 +330,22 @@ export const translations = {
         phone: "Telefon",
         replyTime: "Antwort in der Regel innerhalb von 24 Stunden.",
         startProject: "Dein Projekt starten →",
+      },
+
+      impressum: {
+        back: "← Zurück zur Startseite",
+        title: "Impressum",
+        subtitle: "Angaben gemäß § 5 TMG",
+
+        provider: "Anbieter",
+        contact: "Kontakt",
+        responsible: "Verantwortlich für den Inhalt nach § 18 MStV",
+        lastUpdated: "Zuletzt aktualisiert: 27. Juli 2026",
+
+        country: "Deutschland",
+
+        email: "E-Mail",
+        phone: "Telefon",
       },
 
     },

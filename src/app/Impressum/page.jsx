@@ -1,6 +1,12 @@
+"use client";
+
+import { useLanguage } from "@/hooks/useLanguage";
 import Link from "next/link";
 
-export default function ImpressumPage() {
+export default function Impressum() {
+
+    const { t } = useLanguage();
+
     return (
         <main className="min-h-screen bg-black text-white">
             <section className="mx-auto max-w-4xl px-6 py-24">
@@ -9,21 +15,21 @@ export default function ImpressumPage() {
                     href="/"
                     className="inline-flex items-center text-sm text-white/50 transition hover:text-white"
                 >
-                    ← Back to Home
+                    {t.impressum.back}
                 </Link>
 
                 <h1 className="mt-10 text-5xl font-semibold tracking-tight">
-                    Impressum
+                    {t.impressum.title}
                 </h1>
 
                 <p className="mt-4 text-white/60">
-                    Information according to § 5 TMG
+                    {t.impressum.subtitle}
                 </p>
 
                 <div className="mt-16 space-y-10">
                     <div>
                         <h2 className="text-lg font-medium text-white">
-                            Provider
+                            {t.impressum.provider}
                         </h2>
 
                         <div className="mt-4 space-y-1 text-white/70 leading-7">
@@ -34,7 +40,7 @@ export default function ImpressumPage() {
 
                             <p>44339, Dortmund</p>
 
-                            <p>Germany</p>
+                            <p>{t.impressum.country}</p>
 
                         </div>
                     </div>
@@ -42,13 +48,13 @@ export default function ImpressumPage() {
 
                 <div className="mt-14">
                     <h2 className="text-lg font-medium text-white pt-16 mt-16 border-t border-white/10">
-                        Contact
+                        {t.impressum.contact}
                     </h2>
 
                     <div className="mt-4 space-y-1 text-white/70">
 
                         <p>
-                            Email:{" "}
+                            {t.impressum.email}:{" "}
                             <a
                                 href="mailto:arnemaxseifert@gmail.com"
                                 className="cursor-pointer hover:text-white transition"
@@ -58,7 +64,7 @@ export default function ImpressumPage() {
                         </p>
 
                         <p>
-                            Phone:{" "}
+                            {t.impressum.phone}:{" "}
                             <a
                                 href="tel:+491631292449"
                                 className="cursor-pointer hover:text-white transition"
@@ -72,7 +78,7 @@ export default function ImpressumPage() {
 
                 <div className="mt-14">
                     <h2 className="text-lg font-medium text-white pt-16 mt-16 border-t border-white/10">
-                        Responsible for content according to § 18 MStV
+                        {t.impressum.responsible}
                     </h2>
 
                     <p className="mt-4 text-white/70">
@@ -83,7 +89,7 @@ export default function ImpressumPage() {
                 <div className="mt-24 pt-8 border-t border-white/10">
 
                     <p className="text-sm text-white/40">
-                        Last updated: 27 July 2026
+                        {t.impressum.lastUpdated}
                     </p>
 
                 </div>
