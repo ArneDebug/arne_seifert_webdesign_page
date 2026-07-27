@@ -4,6 +4,10 @@ import Link from "next/link";
 import LegalSection from "@/components/LegalSection";
 import { useLanguage } from "@/hooks/useLanguage";
 
+export const metadata = {
+  title: "Datenschutz",
+};
+
 export default function Datenschutz() {
     const { t } = useLanguage();
 

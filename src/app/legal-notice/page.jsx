@@ -3,6 +3,10 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Impressum",
+};
+
 export default function Impressum() {
 
     const { t } = useLanguage();
