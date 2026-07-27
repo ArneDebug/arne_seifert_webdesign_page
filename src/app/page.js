@@ -88,87 +88,90 @@ export default function PremiumDeveloperPortfolio() {
 
   // GSAP Animations
   useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
 
-    gsap.set(heroRef.current, {
-      autoAlpha: 0,
-    });
+      gsap.set(heroRef.current, {
+        autoAlpha: 0,
+      });
 
-    gsap.set(heroLeftRef.current, {
-      opacity: 0,
-      x: -60,
-    });
-
-    gsap.set(heroRightRef.current, {
-      opacity: 0,
-      x: 80,
-    });
-
-    gsap.set(navRef.current, {
-      opacity: 0,
-      y: -80,
-      filter: "blur(10px)",
-    });
-
-    const tl = gsap.timeline();
-
-    tl.to(navRef.current, {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: 0.8,
-      ease: "power3.out",
-    });
-
-    tl.to(heroRef.current, {
-      autoAlpha: 1,
-      duration: 0.01,
-    });
-
-    tl.to(heroLeftRef.current, {
-      opacity: 1,
-      x: 0,
-      duration: 1,
-      ease: "power3.out",
-    })
-
-    tl.to(heroRightRef.current, {
-      opacity: 1,
-      x: 0,
-      duration: 1,
-      ease: "power3.out",
-    }, "-=0.6")
-
-    gsap.set(heroButtonsRef.current, {
-      opacity: 0,
-      y: 60,
-      scale: 0.92,
-    });
-
-    tl.to(heroButtonsRef.current, {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.9,
-      ease: "back.out(1.8)",
-    }, "-=0.1");
-
-    projectsRef.current.forEach((card) => {
-      gsap.from(card, {
-        y: 40,
+      gsap.set(heroLeftRef.current, {
         opacity: 0,
-        scale: 0.97,
-        duration: 0.2,
-        ease: "power3.out",
+        x: -60,
+      });
 
-        scrollTrigger: {
-          trigger: card,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play reverse play reverse",
-        },
+      gsap.set(heroRightRef.current, {
+        opacity: 0,
+        x: 80,
+      });
+
+      gsap.set(navRef.current, {
+        opacity: 0,
+        y: -80,
+        filter: "blur(10px)",
+      });
+
+      const tl = gsap.timeline();
+
+      tl.to(navRef.current, {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 0.8,
+        ease: "power3.out",
+      });
+
+      tl.to(heroRef.current, {
+        autoAlpha: 1,
+        duration: 0.01,
+      });
+
+      tl.to(heroLeftRef.current, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power3.out",
+      })
+
+      tl.to(heroRightRef.current, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power3.out",
+      }, "-=0.6")
+
+      gsap.set(heroButtonsRef.current, {
+        opacity: 0,
+        y: 60,
+        scale: 0.92,
+      });
+
+      tl.to(heroButtonsRef.current, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.9,
+        ease: "back.out(1.8)",
+      }, "-=0.1");
+
+      projectsRef.current.forEach((card) => {
+        gsap.from(card, {
+          y: 40,
+          opacity: 0,
+          scale: 0.97,
+          duration: 0.2,
+          ease: "power3.out",
+
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play reverse play reverse",
+          },
+        });
       });
     });
 
+    return () => ctx.revert();
 
   }, []);
 
