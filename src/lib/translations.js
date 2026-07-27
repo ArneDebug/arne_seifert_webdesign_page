@@ -173,6 +173,12 @@ export const translations = {
         phone: "Phone",
       },
 
+      legal: {
+        back: "← Back",
+        privacyTitle: "Privacy Policy",
+        lastUpdated: "Last updated: July 27, 2026",
+      },
+
     },
 
     de: {
@@ -340,12 +346,18 @@ export const translations = {
         provider: "Anbieter",
         contact: "Kontakt",
         responsible: "Verantwortlich für den Inhalt nach § 18 MStV",
-        lastUpdated: "Zuletzt aktualisiert: 27. Juli 2026",
+        lastUpdated: "Stand: 27. Juli 2026",
 
         country: "Deutschland",
 
         email: "E-Mail",
         phone: "Telefon",
+      },
+
+      legal: {
+        back: "← Zurück",
+        privacyTitle: "Datenschutzerklärung",
+        lastUpdated: "Stand: 27. Juli 2026",
       },
 
     },
