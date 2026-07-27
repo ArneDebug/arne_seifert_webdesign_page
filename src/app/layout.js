@@ -35,6 +35,11 @@ export const metadata = {
   locale: "de_DE",
   type: "website",
   },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
