@@ -533,7 +533,7 @@ export default function PremiumDeveloperPortfolio() {
               GitHub
             </a>
             <Link
-                href="/impressum"
+                href="/legal-notice"
                 className="hover:text-white transition"
             >
                 {t.footer.imprint}
