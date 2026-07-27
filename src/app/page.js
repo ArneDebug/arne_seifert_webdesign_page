@@ -5,6 +5,7 @@ import ProjectInquiryModal from "../components/ProjectInquiryModal";
 import ContactModal from "../components/ContactModal";
 import { useEffect, useState, useRef } from 'react';
 import { useLayoutEffect } from "react";
+import Link from "next/link";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -519,7 +520,7 @@ export default function PremiumDeveloperPortfolio() {
       {/* Footer */}
       <footer className="border-t border-white/10 py-10 px-6 text-white/40">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4 text-sm">
-          <div>© 2026 Arne Seifert Webdesign. {t.rightsReserved}</div>
+          <div>© {new Date().getFullYear()} Arne Seifert. {t.rightsReserved}</div>
 
           <div className="flex gap-6">
             <a href="https://instagram.com/arne.webdesign" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
@@ -531,6 +532,19 @@ export default function PremiumDeveloperPortfolio() {
             <a href="https://github.com/ArneDebug" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               GitHub
             </a>
+            <Link
+                href="/impressum"
+                className="hover:text-white transition"
+            >
+                {t.footer.imprint}
+            </Link>
+
+            <Link
+                href="/datenschutz"
+                className="hover:text-white transition"
+            >
+                {t.footer.privacy}
+            </Link>
             <button onClick={() => setContactOpen(true)} className="cursor-pointer hover:text-white transition">
               {t.contact}
             </button>

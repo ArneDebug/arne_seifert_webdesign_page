@@ -179,6 +179,11 @@ export const translations = {
         lastUpdated: "Last updated: July 27, 2026",
       },
 
+      footer: {
+        rightsReserved:"All rights reserved.",
+        imprint: "Legal Notice",
+        privacy: "Privacy Policy",
+        },
     },
 
     de: {
@@ -360,5 +365,10 @@ export const translations = {
         lastUpdated: "Stand: 27. Juli 2026",
       },
 
+      footer: {
+        rightsReserved: "Alle Rechte vorbehalten.",
+        imprint: "Impressum",
+        privacy: "Datenschutz",
+        },
     },
 }
