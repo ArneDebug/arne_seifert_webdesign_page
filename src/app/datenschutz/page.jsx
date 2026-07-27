@@ -15,19 +15,19 @@ export default function Datenschutz() {
                 </h1>
 
                 <p className="mt-5 leading-8 text-white/70">
-                    Zuletzt aktualisiert...
+                    Zuletzt aktualisiert
                 </p>
 
                 <LegalSection title="1. Allgemeine Hinweise">
-                    <p>...</p>
+                    <p></p>
                 </LegalSection>
 
                 <LegalSection title="2. Verantwortlicher">
-                    <p>...</p>
+                    <p></p>
                 </LegalSection>
 
                 <LegalSection title="3. Hosting">
-                    <p>...</p>
+                    <p></p>
                 </LegalSection>
 
             </section>
