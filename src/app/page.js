@@ -1,5 +1,6 @@
 'use client'
 
+import { translations } from "@/lib/translations";
 import ProjectInquiryModal from "../components/ProjectInquiryModal";
 import ContactModal from "../components/ContactModal";
 import { useEffect, useState, useRef } from 'react';
@@ -137,10 +138,16 @@ export default function PremiumDeveloperPortfolio() {
       ease: "power3.out",
     }, "-=0.6")
 
-    tl.from(heroButtonsRef.current, {
+    gsap.set(heroButtonsRef.current, {
       opacity: 0,
       y: 60,
       scale: 0.92,
+    });
+
+    tl.to(heroButtonsRef.current, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
       duration: 0.9,
       ease: "back.out(1.8)",
     }, "-=0.1");
