@@ -519,10 +519,10 @@ export default function PremiumDeveloperPortfolio() {
 
       {/* Footer */}
       <footer className="border-t border-white/10 py-10 px-6 text-white/40">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4 text-sm">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 text-sm">
           <div>© {new Date().getFullYear()} Arne Seifert. {t.rightsReserved}</div>
 
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-3">
             <a href="https://instagram.com/arne.webdesign" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               Instagram
             </a>
