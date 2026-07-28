@@ -532,6 +532,9 @@ export default function PremiumDeveloperPortfolio() {
             <a href="https://github.com/ArneDebug" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               GitHub
             </a>
+            <button onClick={() => setContactOpen(true)} className="cursor-pointer hover:text-white transition">
+              {t.contact}
+            </button>
             <Link
                 href="/legal-notice"
                 className="hover:text-white transition"
@@ -545,9 +548,6 @@ export default function PremiumDeveloperPortfolio() {
             >
                 {t.footer.privacy}
             </Link>
-            <button onClick={() => setContactOpen(true)} className="cursor-pointer hover:text-white transition">
-              {t.contact}
-            </button>
           </div>
         </div>
       </footer>
