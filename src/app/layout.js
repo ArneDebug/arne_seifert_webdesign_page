@@ -109,7 +109,7 @@ export default function RootLayout({ children }) {
                       telephone: "+491631292449",
 
                       address: {
-                          "@type": "PostalAddress",
+                          "@type": "44339",
                           addressLocality: "Dortmund",
                           addressCountry: "DE",
                       },
