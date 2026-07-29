@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "Arne Webdesign",
+    default: "Arne Webdesign | Premium Websites for Local Businesses",
     template: "%s | Arne Webdesign",
   },
   description:
-    "Professionelle Websites für kleine Unternehmen und Selbstständige.",
+    "Premium Webdesign für kleine Unternehmen und Selbstständige. Moderne, schnelle und responsive Websites, die Vertrauen schaffen und mehr Kunden gewinnen.",
   keywords: [
   "Webdesign Dortmund",
   "Webdesigner Dortmund",
@@ -28,12 +28,27 @@ export const metadata = {
   "Webentwicklung",
   ],
   openGraph: {
-  title: "Arne Webdesign",
-  description: "Professionelle Websites für kleine Unternehmen.",
-  url: "https://arne-webdesign.de",
-  siteName: "Arne Webdesign",
-  locale: "de_DE",
-  type: "website",
+    title: "Arne Webdesign | Premium Websites for Local Businesses",
+
+    description:
+      "Premium Webdesign für kleine Unternehmen und Selbstständige. Moderne Websites, die Vertrauen schaffen und Kunden gewinnen.",
+
+    url: "https://arne-webdesign.de",
+
+    siteName: "Arne Webdesign",
+
+    locale: "de_DE",
+
+    type: "website",
+
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Arne Webdesign",
+      },
+    ],
   },
 
   robots: {
@@ -48,7 +63,53 @@ export default function RootLayout({ children }) {
       lang="de"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+
+          {children}
+
+          <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                      "@context": "https://schema.org",
+                      "@type": "WebDesignCompany",
+
+                      name: "Arne Webdesign",
+
+                      url: "https://arne-webdesign.de",
+
+                      logo: "https://arne-webdesign.de/icon.png",
+
+                      image: "https://arne-webdesign.de/opengraph-image.png",
+
+                      description:
+                          "Premium Webdesign für kleine Unternehmen und Selbstständige.",
+
+                      founder: {
+                          "@type": "Person",
+                          name: "Arne Seifert",
+                      },
+
+                      email: "arnemaxseifert@gmail.com",
+
+                      telephone: "+491631292449",
+
+                      address: {
+                          "@type": "PostalAddress",
+                          addressLocality: "Dortmund",
+                          addressCountry: "DE",
+                      },
+
+                      sameAs: [
+                          "https://instagram.com/arne.webdesign",
+                          "https://github.com/ArneDebug",
+                          "https://facebook.com/Arne.Seifert06",
+                      ],
+                  }),
+              }}
+          />
+
+      </body>
     </html>
   );
 }
