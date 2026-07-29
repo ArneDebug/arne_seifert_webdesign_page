@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "Arne Webdesign | Premium Websites for Local Businesses",
+    default: "Arne Webdesign | Professionelle Websites für Unternehmen",
     template: "%s | Arne Webdesign",
   },
   description:
@@ -31,9 +31,10 @@ export const metadata = {
   "Responsive Webseiten",
   "Freelancer",
   "Webentwicklung",
+  "Arne Seifert",
   ],
   openGraph: {
-    title: "Arne Webdesign | Premium Websites for Local Businesses",
+    title: "Arne Webdesign | Professionelle Websites für Unternehmen",
 
     description:
       "Premium Webdesign für kleine Unternehmen und Selbstständige. Moderne Websites, die Vertrauen schaffen und Kunden gewinnen.",
