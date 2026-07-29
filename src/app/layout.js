@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
               dangerouslySetInnerHTML={{
                   __html: JSON.stringify({
                       "@context": "https://schema.org",
-                      "@type": "WebDesignCompany",
+                      "@type": "ProfessionalService",
 
                       name: "Arne Webdesign",
 
@@ -82,8 +82,22 @@ export default function RootLayout({ children }) {
 
                       image: "https://arne-webdesign.de/opengraph-image.png",
 
-                      description:
-                          "Premium Webdesign für kleine Unternehmen und Selbstständige.",
+                      description: "Premium Webdesign für kleine Unternehmen und Selbstständige.",
+
+                      priceRange: "€€",
+
+                      areaServed: {
+                        "@type": "Country",
+                        "name": "Germany"
+                      },
+
+                      knowsAbout: [
+                          "Web Design",
+                          "Landing Pages",
+                          "Next.js",
+                          "SEO",
+                          "Responsive Websites"
+                      ],
 
                       founder: {
                           "@type": "Person",
