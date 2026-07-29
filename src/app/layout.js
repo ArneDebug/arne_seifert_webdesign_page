@@ -18,6 +18,11 @@ export const metadata = {
   },
   description:
     "Premium Webdesign für kleine Unternehmen und Selbstständige. Moderne, schnelle und responsive Websites, die Vertrauen schaffen und mehr Kunden gewinnen.",
+
+  verification: {
+    google: "6JtYYkUDk1wwLnFxzhlemjyKlDHExOkXWwz79KQDmkQ",
+  },
+
   keywords: [
   "Webdesign Dortmund",
   "Webdesigner Dortmund",
