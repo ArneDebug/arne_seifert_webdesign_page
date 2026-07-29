@@ -209,7 +209,7 @@ export default function PremiumDeveloperPortfolio() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-5 flex items-center justify-between">
           <div className="text-xl font-bold tracking-widest uppercase">
             <button onClick={() => scrollToSection("hero")} className="cursor-pointer">
-              Arne Seifert Webdesign.
+              Arne Webdesign.
             </button>
           </div>
 
