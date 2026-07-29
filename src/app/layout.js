@@ -49,7 +49,7 @@ export const metadata = {
 
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/opengraph-image-v2.png",
         width: 1200,
         height: 630,
         alt: "Arne Webdesign",
@@ -86,7 +86,7 @@ export default function RootLayout({ children }) {
 
                       logo: "https://arne-webdesign.de/icon.png",
 
-                      image: "https://arne-webdesign.de/opengraph-image.png",
+                      image: "https://arne-webdesign.de/opengraph-image-v2.png",
 
                       description: "Premium Webdesign für kleine Unternehmen und Selbstständige.",
 

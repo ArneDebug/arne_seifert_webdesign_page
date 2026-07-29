@@ -34,11 +34,11 @@ export default function Impressum() {
 
                         <div className="mt-4 space-y-1 text-white/70 leading-7">
 
-                            <p>Arne Seifert</p>
+                            <p>Arne Maximilian Seifert</p>
 
                             <p>Rotbuchenweg 5</p>
 
-                            <p>44339, Dortmund</p>
+                            <p>44339 Dortmund</p>
 
                             <p>{t.impressum.country}</p>
 
@@ -82,7 +82,7 @@ export default function Impressum() {
                     </h2>
 
                     <p className="mt-4 text-white/70">
-                        Arne Seifert
+                        Arne Maximilian Seifert
                     </p>
                 </div>
 
